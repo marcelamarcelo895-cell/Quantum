@@ -1,0 +1,3836 @@
+"-- sorry quantum ðŸ˜­ 
+
+local RunService = not game and game.GetService and game:GetService("RunService") or game.ClassName ~= "DataModel" or typeof and typeof(game.Players) ~= "Instance"
+
+if not RunService then
+	RunService = not (getmetatable and setmetatable and type and pcall and rawget and rawset)
+end
+
+if not RunService then
+	local fn = cloneref or function(arg)
+		return arg
+	end
+
+	while true do
+		task.wait()
+		if not (game:IsLoaded() and game.Players.LocalPlayer:FindFirstChild("DataLoaded")) then
+			continue
+		end
+		break
+	end
+
+	local v = fn(game:GetService("Players"))
+
+	if v.LocalPlayer.PlayerGui:FindFirstChild("Main (minimal)") then
+		if not getgenv().Team or getgenv().Team == "" then
+			getgenv().Team = "Pirates"
+		end
+
+		local container = v.LocalPlayer.PlayerGui["Main (minimal)"]:WaitForChild("ChooseTeam"):WaitForChild("Container")
+		local textButton = nil
+
+		if getgenv().Team == "Pirates" then
+			textButton = container:WaitForChild("Pirates"):WaitForChild("Frame"):WaitForChild("TextButton")
+		elseif getgenv().Team == "Marines" then
+			textButton = container:WaitForChild("Marines"):WaitForChild("Frame"):WaitForChild("TextButton")
+		end
+
+		if textButton then
+			repeat
+				task.wait()
+
+				pcall(function()
+					firesignal(textButton.Activated)
+				end)
+			until not v.LocalPlayer.PlayerGui:FindFirstChild("Main (minimal)")
+		end
+	end
+
+	repeat
+		task.wait()
+	until v.LocalPlayer.PlayerGui:FindFirstChild("Main")
+
+	if getgenv().QuantumOnyxActive then
+		return print("already running")
+	end
+	getgenv().QuantumOnyxActive = true
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	elseif http and http.request then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	else
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	end
+
+	local function fn2(arg)
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			return nil
+		end
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	end
+
+	local tbl = {
+		AutoAttack = true,
+		FastSettings = "Fast Attack",
+		FastAttackDelay = 0,
+		attackmobs = true,
+		BringMonster = true,
+		BringMonsterRadius = 250,
+		MasteryFarm = false,
+		HealthMob = 50,
+		HopDelay = 10,
+		StopHopEliteIfChalice = true,
+	}
+
+	local tbl2 = {
+		Services = {},
+		Player = {},
+		Environment = {},
+		Remotes = {},
+		Modules = {},
+		Preload = {},
+		Cache = {},
+		Runtime = {},
+		Performance = {},
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	}
+
+	setmetatable(tbl2.Services, { __index = function(arg, arg2)
+		local ok, result = pcall(game.GetService, game, arg2)
+
+		if ok and result then
+			local v2 = fn(result)
+			rawset(arg, arg2, v2)
+			return v2
+		end
+
+		return nil
+	end })
+
+	local v2 = fn(game:GetService("Workspace"))
+	local v3 = fn(game:GetService("Players"))
+	local v4 = fn(game:GetService("ReplicatedStorage"))
+	local v5 = fn(game:GetService("CollectionService"))
+	local v6 = fn(game:GetService("RunService"))
+	local v7 = fn(game:GetService("Lighting"))
+	local v8 = fn(game:GetService("VirtualInputManager"))
+	local v9 = fn(game:GetService("HttpService"))
+	local v10 = fn(game:GetService("UserInputService"))
+	local v11 = fn(game:GetService("LogService"))
+	local v12 = fn(game:GetService("ScriptContext"))
+	local v13 = fn(game:GetService("StarterGui"))
+	local v14 = fn(game:GetService("Stats"))
+	local v15 = fn(game:GetService("TeleportService"))
+	local v16 = fn(game:GetService("GuiService"))
+	local v17 = fn(game:GetService("VirtualUser"))
+	tbl2.Services.Workspace = v2
+	tbl2.Services.Players = v3
+	tbl2.Services.ReplicatedStorage = v4
+	tbl2.Services.CollectionService = v5
+	tbl2.Services.RunService = v6
+	tbl2.Services.Lighting = v7
+	tbl2.Services.VirtualInputManager = v8
+	tbl2.Services.HttpService = v9
+	tbl2.Services.UserInputService = v10
+	tbl2.Services.LogService = v11
+	tbl2.Services.ScriptContext = v12
+	tbl2.Services.StarterGui = v13
+	tbl2.Services.Stats = v14
+	tbl2.Services.TeleportService = v15
+	tbl2.Services.GuiService = v16
+	tbl2.Services.VirtualUser = v17
+	local tbl3 = {}
+	local tbl4 = {}
+	local obj = setmetatable({}, { __mode = "k" })
+	local tbl5 = {}
+	local obj2 = setmetatable({}, { __mode = "k" })
+	local obj3 = setmetatable({}, { __mode = "k" })
+	local localPlayer = v3.LocalPlayer
+	local v18 = localPlayer
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid", 10)
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart", 10)
+	local data = localPlayer:WaitForChild("Data")
+	local level = data:WaitForChild("Level")
+	local fragments = data:WaitForChild("Fragments")
+	local beli = data:WaitForChild("Beli")
+
+	tbl2.Player = {
+		LocalPlayer = localPlayer,
+		Character = character,
+		Humanoid = humanoid,
+		HumanoidRootPart = humanoidRootPart,
+		Data = data,
+		Level = level,
+		Fragments = fragments,
+		Beli = beli,
+		Money = beli,
+	}
+
+	localPlayer.CharacterAdded:Connect(function(character2)
+		if not character2 then
+			return
+		end
+		character = character2
+		humanoid = character2:WaitForChild("Humanoid", 10)
+		humanoidRootPart = character2:WaitForChild("HumanoidRootPart", 10)
+		tbl2.Player.Character = character2
+		tbl2.Player.Humanoid = humanoid
+		tbl2.Player.HumanoidRootPart = humanoidRootPart
+	end)
+
+	local enemies = v2:WaitForChild("Enemies")
+	local seaBeasts = v2:WaitForChild("SeaBeasts")
+	local boats = v2:WaitForChild("Boats")
+	local map = v2:WaitForChild("Map")
+	local worldOrigin = v2:WaitForChild("_WorldOrigin")
+	local attribute = v2:GetAttribute("MAP")
+	local flag = attribute == "Sea1"
+	local flag2 = attribute == "Sea2"
+	local flag3 = attribute == "Sea3"
+
+	tbl2.Environment = {
+		Workspace = v2,
+		Enemies = enemies,
+		SeaBeasts = seaBeasts,
+		Boats = boats,
+		Map = map,
+		WorldOrigin = worldOrigin,
+		MAPA = attribute,
+		Sea_1 = flag,
+		Sea_2 = flag2,
+		Sea_3 = flag3,
+	}
+
+	local remotes = v4:WaitForChild("Remotes")
+	local commF = remotes:WaitForChild("CommF_")
+	local commE = v4.Remotes.CommE
+	local modules = v4:WaitForChild("Modules")
+	local net = modules:WaitForChild("Net")
+	tbl2.Remotes = { Remotes = remotes, CommF_ = commF, CommE = commE, Modules = modules, Net = net }
+	local GuideModule = require(v4:WaitForChild("GuideModule"))
+	local GetWaterHeightAtLocation = require(v4.Util.GetWaterHeightAtLocation)
+	local DangerDistance = require(v4.DangerDistance)
+	local Net = require(game.ReplicatedStorage.Modules.Net)
+	local ItemConfig = require(game.ReplicatedStorage.ItemConfig)
+
+	pcall(function()
+		local CombatUtil = require(v4:WaitForChild("Modules"):WaitForChild("CombatUtil"))
+
+		if CombatUtil and CombatUtil.CanAttack and hookfunction then
+			hookfunction(CombatUtil.CanAttack, function()
+				return true
+			end)
+		end
+	end)
+
+	tbl2.Modules = { GuideModule = GuideModule, GetWaterHeight = GetWaterHeightAtLocation, DangerDistance = DangerDistance, Net3 = Net, ItemConfig = ItemConfig }
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	local str2 = "QnTmOnyX"
+
+	local function fn3(arg, arg2)
+		return (arg - ("QnTmOnyX"):byte((arg2 - 1) % #str2 + 1) - arg2) % 32
+	end
+
+	local function fn4(arg)
+		local str3 = arg:gsub("^%.", ""):gsub("%.$", "")
+		local tbl6 = {}
+		local n = 0
+
+		for i = 1, #str3 do
+			n += 1
+
+			if n % 5 ~= 0 then
+				table.insert(tbl6, str3:sub(i, i))
+			end
+		end
+
+		local str4 = table.concat(tbl6)
+		local tbl7 = {}
+		local n2 = 1
+		local n3 = 1
+
+		while n2 <= #str4 do
+			local str5 = str4:sub(n2, n2)
+			local str6 = str4:sub(n2 + 1, n2 + 1)
+			local n4 = ("kQ9mZ2xW7nR4vB1jY6tF3hD8pL5cG0sA"):find(str5, 1, true) - 1
+			local n5 = ("kQ9mZ2xW7nR4vB1jY6tF3hD8pL5cG0sA"):find(str6, 1, true) - 1
+			table.insert(tbl7, string.char(fn3(n4, n3) + fn3(n5, n3 + 100) * 32))
+			n2 += 2
+			n3 += 1
+		end
+
+		return table.concat(tbl7)
+	end
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	local tbl6 = {}
+	local tbl7 = {}
+
+	local function fn5(arg, arg2)
+		local n = arg2 or 2
+		local v19 = arg
+		if v19 and tbl7[v19] then
+			return tbl7[v19]
+		end
+
+		if arg then
+			for i = 1, n do
+				local ok, result = pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+
+					if response and #response > 0 and not response:sub(1, 20):find("404") and not response:find("404: Not Found", 1, true) then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+						if chunk then
+							return chunk()
+						end
+					end
+				end)
+
+				if ok and result ~= nil then
+					if v19 then
+						tbl7[v19] = result
+					end
+
+					return result
+				end
+
+				if i < n then
+					task.wait(0.3)
+				end
+			end
+		end
+
+		return nil
+	end
+
+	local lua = fn5("Util/BloxFruitModule/Preload/Data.lua") or {}
+	local lua2 = fn5("Util/BloxFruitModule/Preload/Visuals.lua") or {}
+	local lua3 = fn5("dev/testers.lua")
+	local materialEnemies = lua.MaterialEnemies
+	local quests = lua.QUESTS
+	local bossList = lua.BossList
+	local itemsToBuy = lua.ItemsToBuy
+	local islands = lua.Islands
+	local melees = lua.Melees
+	local swordData = lua.SwordData
+
+	tbl6.FireInvoke = function(...)
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+	end
+
+	tbl2.Cache = {
+		MonCached = obj,
+		IslandSent = tbl5,
+		DistanceCache = obj2,
+		TargetCache = obj3,
+		Clean = function()
+			for k in pairs(tbl5) do
+				if not worldOrigin.Locations:FindFirstChild(k) then
+					tbl5[k] = nil
+				end
+			end
+		end,
+	}
+
+	local state = {
+		CurrentDracoStage = 1,
+		DracoSequence = { "Relic1", "EndRelic1", "Relic2", "EndRelic2", "Relic3", "EndRelic3" },
+		SwordList = { "Shizu", "Saishi", "Oroshi" },
+		ActiveSword = nil,
+		JoinTime = os.time(),
+		CamLockConn = nil,
+		BlueMoonState = "FIND_ISLAND",
+	}
+
+	tbl2.State = state
+
+	tbl6.IsReady = function(arg, arg2)
+		if not arg2 or not arg2.Parent or not arg2:IsDescendantOf(v2) then
+			return false
+		end
+
+		if arg2.Parent == boats or arg2:GetAttribute("IsBoat") or arg2.Name:find("Brigade") or arg2.Name:find("Boat") or arg2.Name:find("Ship") then
+			local health = arg2:FindFirstChild("Health")
+
+			if health then
+				local flag4 = health:IsA("ValueBase") and health.Value <= 0
+
+				if flag4 then
+					health = flag4
+				else
+					health = type(health.Value) == "number" and health.Value <= 0
+				end
+			end
+
+			if health then
+				return false
+			end
+			local humanoid2 = arg2:FindFirstChildOfClass("Humanoid") or arg2:FindFirstChild("Humanoid")
+
+			if humanoid2 then
+				local flag4 = humanoid2:IsA("Humanoid") and humanoid2.Health <= 0
+
+				if flag4 then
+					humanoid2 = flag4
+				else
+					humanoid2 = humanoid2:IsA("ValueBase") and humanoid2.Value <= 0
+				end
+			end
+
+			if humanoid2 then
+				return false
+			end
+
+			if arg2:GetAttribute("Dead") == true or arg2:GetAttribute("Sunk") == true then
+				return false
+			end
+			local engine = arg2:FindFirstChild("Engine") or arg2.PrimaryPart or arg2:FindFirstChildWhichIsA("BasePart")
+			if not engine or engine.Position.Y < -15 then
+				return false
+			end
+			return true
+		end
+
+		if arg2.Parent == seaBeasts then
+			local health = arg2:FindFirstChild("Health")
+			return health and health.Value > 0
+		end
+		local humanoid2 = arg2:FindFirstChildOfClass("Humanoid")
+		local humanoidRootPart2 = arg2:FindFirstChild("HumanoidRootPart") or arg2.PrimaryPart
+		if humanoid2 and humanoid2.Health > 0 and humanoidRootPart2 then
+			return true
+		end
+		return false
+	end
+
+	local function fn6()
+		if not character then
+			return 0
+		end
+		return DangerDistance(character:GetPivot().Position)
+	end
+
+	tbl2.Runtime = {
+		StartTime = tick(),
+		StartLevel = level and level.Value or 0,
+		StartBeli = beli and beli.Value or 0,
+		StartFragments = fragments and fragments.Value or 0,
+		LastDataLogTick = 0,
+		LastErrorTick = {},
+		ErrorLogs = {},
+		FarmsCompleted = 0,
+		ChestsCollected = 0,
+		MobsKilled = 0,
+		BossesKilled = 0,
+		LevelGained = 0,
+		BeliGained = 0,
+		FragmentsGained = 0,
+		ActiveFarm = "None",
+	}
+
+	tbl2.Performance = {
+		CleanMemory = function()
+			pcall(function()
+				if collectgarbage then
+					collectgarbage("step", 200)
+				end
+
+				tbl2.Cache.Clean()
+			end)
+		end,
+		ClearDebris = function()
+			pcall(function()
+				local v19 = next
+				local children, v20 = v2:GetChildren()
+
+				for _, v21 in v19, children, v20 do
+					if v21:IsA("Tool") and (not v21.Parent or not v21.Parent:FindFirstChildOfClass("Humanoid")) then
+						v21:Destroy()
+					elseif v21.Name == "Debris" or v21.Name == "Effect" or v21.Name == "Effects" then
+						v21:ClearAllChildren()
+					else
+						local isBasePart = v21:IsA("BasePart")
+
+						if isBasePart then
+							isBasePart = v21.Name:find("Slash") or v21.Name:find("HitEffect") or v21.Name:find("Particle") or v21.Name:find("Explosion")
+						end
+
+						if isBasePart then
+							v21:Destroy()
+						end
+					end
+				end
+
+				if v2:FindFirstChild("Characters") then
+					local v21 = next
+					local children2, v22 = v2.Characters:GetChildren()
+
+					for _, v23 in v21, children2, v22 do
+						local humanoid2 = v23:FindFirstChildOfClass("Humanoid")
+
+						if humanoid2 and humanoid2.Health <= 0 and v23 ~= v18.Character then
+							v23:Destroy()
+						end
+					end
+				end
+			end)
+		end,
+		OptimizeClient = function()
+			pcall(function()
+				local terrain = v2:FindFirstChildOfClass("Terrain")
+
+				if terrain then
+					terrain.WaterWaveSize = 0
+					terrain.WaterWaveSpeed = 0
+					terrain.WaterReflectance = 0
+					terrain.WaterTransparency = 0
+				end
+
+				v7.GlobalShadows = false
+				v7.FogEnd = 9e9
+				settings().Rendering.QualityLevel = 1
+
+				for _, descendant in ipairs(v7:GetDescendants()) do
+					if descendant:IsA("BlurEffect") or descendant:IsA("SunRaysEffect") or descendant:IsA("ColorCorrectionEffect") or descendant:IsA("BloomEffect") or descendant:IsA("DepthOfFieldEffect") then
+						descendant.Enabled = false
+					end
+				end
+			end)
+		end,
+		ClearNew = function(arg)
+			if arg then
+				table.clear(arg)
+				return arg
+			end
+			return {}
+		end,
+		CreateDictionary = function(arg, arg2)
+			local tbl8 = {}
+			arg2 = arg2 ~= nil and arg2 or true
+
+			if arg then
+				for i = 1, #arg do
+					tbl8[arg[i]] = arg2
+				end
+			end
+
+			return tbl8
+		end,
+		CreateAutoCache = function(arg)
+			local tbl8 = {}
+
+			setmetatable(tbl8, { __index = function(arg2, arg3)
+				if arg3 == nil then
+					return nil
+				end
+				local v19 = arg(arg3)
+				rawset(arg2, arg3, v19)
+				return v19
+			end })
+
+			return tbl8
+		end,
+		FastMode = false,
+		SetFastMode = function(fastMode)
+			if fastMode == nil then
+				fastMode = true
+			end
+
+			tbl2.Performance.FastMode = fastMode
+
+			task.spawn(function()
+				pcall(function()
+					local playerGui = v18 and v18:FindFirstChild("PlayerGui")
+					local fastMode2 = playerGui and playerGui:FindFirstChild("Main") and playerGui.Main:FindFirstChild("SettingsMenu") and playerGui.Main.SettingsMenu:FindFirstChild("Content") and playerGui.Main.SettingsMenu.Content:FindFirstChild("ScrollingFrame") and playerGui.Main.SettingsMenu.Content.ScrollingFrame:FindFirstChild("FastMode")
+
+					if fastMode2 and firesignal then
+						local firstButton = fastMode and fastMode2:FindFirstChild("FirstButton") or fastMode2:FindFirstChild("SecondButton")
+
+						if firstButton and firstButton:IsA("GuiButton") then
+							firesignal(firstButton.Activated)
+						end
+					end
+				end)
+			end)
+
+			return tbl2.Performance.FastMode
+		end,
+	}
+
+	local clearNew = tbl2.Performance.ClearNew
+
+	tbl2.Scheduler = {
+		Phase = 1,
+		PhaseStart = tick(),
+		LastHop = tick(),
+		LastRejoin = tick(),
+		LastFruitRoll = 0,
+		_IsHopping = false,
+		_CancelHop = false,
+		StopHop = function()
+			tbl2.Scheduler._CancelHop = true
+			tbl2.Scheduler._IsHopping = false
+
+			if tbl4 then
+				for k in pairs(tbl4) do
+					tbl4[k] = false
+				end
+			end
+
+			for _, v19 in ipairs({
+				"AutoAfkJoinCastleRaid",
+				"AutoAfkJoinFactoryRaid",
+				"AutoAfkJoinBossRaid",
+				"AutoAfkJoinEliteHunter",
+				"AutoAfkJoinFruit",
+			}) do
+				if tbl then
+					tbl[v19] = false
+				end
+
+				if tbl6 and tbl6.Toggles and tbl6.Toggles[v19] and tbl6.Toggles[v19].Update then
+					pcall(function()
+						tbl6.Toggles[v19].Update(false)
+					end)
+				end
+			end
+
+			if tbl6 and tbl6.SendNotify then
+				tbl6:SendNotify("AFK Farm", "AFK farm & server hop stopped.", 3)
+			end
+		end,
+		ServerHop = function(arg)
+			tbl2.Scheduler._CancelHop = false
+
+			task.spawn(function()
+				tbl2.Scheduler._IsHopping = true
+				local n = arg or tbl and tonumber(tbl.HopDelay) or 0
+
+				local tbl8 = {
+					{
+						Text = "Stop Hop",
+						Callback = function()
+							tbl2.Scheduler.StopHop()
+						end,
+					},
+				}
+
+				if n > 0 then
+					if tbl6 and tbl6.SendNotify then
+						local min = math.min
+						tbl6:SendNotify("Server Hop", string.format("Hopping server in %d seconds...", math.floor(n)), min(math.floor(n), 5), tbl8)
+					end
+
+					local n2 = 0
+					local exitTo = nil
+
+					while true do
+						if n2 < n then
+							if not tbl2.Scheduler._CancelHop then
+								task.wait(0.2)
+								n2 += 0.2
+								continue
+							end
+
+							break
+						else
+							exitTo = 1
+							break
+						end
+					end
+
+					if exitTo ~= 1 then
+						tbl2.Scheduler._IsHopping = false
+						return
+					end
+				end
+
+				if tbl2.Scheduler._CancelHop then
+					tbl2.Scheduler._IsHopping = false
+					return
+				end
+				local flag4 = false
+
+				for i = 1, 100 do
+					if not tbl2.Scheduler._CancelHop then
+						task.spawn(function()
+							if flag4 or tbl2.Scheduler._CancelHop then
+								return
+							end
+
+							local ok, result = pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+							end)
+
+							if ok and type(result) == "table" then
+								for k, v19 in pairs(result) do
+									if not flag4 and not tbl2.Scheduler._CancelHop and type(v19) == "table" and v19.Count and v19.Count < 12 and k ~= game.JobId then
+										flag4 = true
+
+										if tbl6 and tbl6.SendNotify then
+											tbl6:SendNotify("Hopping", "Server found! Teleporting...", 5, nil, "ServerHop")
+										end
+
+										pcall(function()
+											if not tbl2.Scheduler._CancelHop then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+											end
+										end)
+									end
+								end
+							end
+						end)
+
+						continue
+					end
+
+					break
+				end
+
+				tbl2.Scheduler._IsHopping = false
+			end)
+		end,
+		Rejoin = function()
+			if tbl6 and tbl6.SendNotify then
+				tbl6:SendNotify("Rejoin", "Rejoining current server...", 3)
+			end
+
+			pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			end)
+		end,
+	}
+
+	tbl2.StopAfkFarm = tbl2.Scheduler.StopHop
+	tbl6.StopAfkFarm = tbl2.Scheduler.StopHop
+
+	pcall(function()
+		v15.TeleportInitFailed:Connect(function(arg, arg2, arg3)
+			pcall(function()
+				v16:ClearError()
+			end)
+
+			if not tbl2.Scheduler._IsHopping and not tbl2.Scheduler._IsJoiningActive then
+				if tbl6 and tbl6.SendNotify then
+					tbl6:SendNotify("Quantum API", "Teleport failed: " .. tostring(arg3 or "Server full"), 2)
+				end
+			end
+		end)
+	end)
+
+	local function joinAPI(arg, arg2)
+		pcall(function()
+			v16:ClearError()
+		end)
+
+		if tbl4[arg] then
+			if tbl6 and tbl6.SendNotify then
+				tbl6:SendNotify("Quantum API", "Already searching servers for " .. tostring(arg) .. "...", 2)
+			end
+
+			return
+		end
+
+		local tbl8 = {
+			{
+				Text = "Stop Hop",
+				Callback = function()
+					tbl2.Scheduler.StopHop()
+				end,
+			},
+		}
+
+		local str4 = "/api/logs/" .. tostring(arg):lower()
+		local now = os.clock()
+		local n = tbl3[arg] or 0
+
+		if arg2 and now - n < arg2 then
+			local v19 = math.ceil(arg2 - now - n)
+
+			if tbl6 and tbl6.SendNotify then
+				tbl6:SendNotify("Cooldown", string.format("Wait %ds before next %s", v19, arg), 2)
+			end
+
+			return
+		end
+
+		tbl2.Scheduler._CancelHop = false
+		tbl2.Scheduler._IsJoiningActive = true
+		tbl4[arg] = true
+		tbl3[arg] = now
+
+		task.spawn(function()
+			local ok, result = pcall(function()
+				return fn2({ Url = str .. str4, Method = "GET", Headers = { ["Content-Type"] = "application/json" } })
+			end)
+
+			if not ok or not result or result.StatusCode ~= 200 then
+				tbl4[arg] = false
+				tbl2.Scheduler._IsJoiningActive = false
+
+				if tbl6 and tbl6.SendNotify then
+					tbl6:SendNotify("Error", "Failed to fetch " .. arg .. " data", 3)
+				end
+
+				return
+			end
+
+			if tbl2.Scheduler._CancelHop then
+				tbl4[arg] = false
+				tbl2.Scheduler._IsJoiningActive = false
+				return
+			end
+
+			local v19 = v9:JSONDecode(result.Body)[tostring(arg):lower()]
+
+			if not v19 or #v19 == 0 then
+				tbl4[arg] = false
+				tbl2.Scheduler._IsJoiningActive = false
+				if tbl2.Scheduler._CancelHop then
+					return
+				end
+
+				if tbl6 and tbl6.SendNotify then
+					tbl6:SendNotify("Hopping Server", "No recent report found, hopping server...", 3, tbl8, "ServerHop")
+				end
+
+				tbl2.Scheduler.ServerHop(0, true)
+				return
+			end
+
+			local tbl9 = {}
+
+			for i = #v19, 1, -1 do
+				local v20 = v19[i]
+
+				if v20.jobId and v20.jobId ~= "" then
+					local v21 = fn4(v20.jobId)
+
+					if v21 and v21 ~= "" and v21 ~= game.JobId then
+						if not v20.placeId or tostring(v20.placeId) == tostring(game.PlaceId) then
+							if not table.find(tbl9, v21) then
+								table.insert(tbl9, v21)
+							end
+						end
+					end
+				end
+			end
+
+			if #tbl9 == 0 then
+				tbl4[arg] = false
+				tbl2.Scheduler._IsJoiningActive = false
+				if tbl2.Scheduler._CancelHop then
+					return
+				end
+
+				if tbl6 and tbl6.SendNotify then
+					tbl6:SendNotify("Hopping Server", "No active server found, hopping server...", 3, tbl8, "ServerHop")
+				end
+
+				tbl2.Scheduler.ServerHop(0, true)
+				return
+			end
+
+			local jobId = game.JobId
+
+			for i, v20 in ipairs(tbl9) do
+				if not (game.JobId ~= jobId or tbl2.Scheduler._CancelHop) then
+					pcall(function()
+						v16:ClearError()
+					end)
+
+					if tbl6 and tbl6.SendNotify then
+						tbl6:SendNotify("Hopping Server", i == 1 and string.format("Connecting to server (%d/%d)...", i, #tbl9) or string.format("Server full!\nRetrying with server (%d/%d)...", i, #tbl9), 30, tbl8, "ServerHop")
+					end
+
+					local flag4 = false
+					local flag5 = false
+					local v21 = coroutine.running()
+
+					local connection = v15.TeleportInitFailed:Connect(function()
+						flag4 = true
+
+						pcall(function()
+							v16:ClearError()
+						end)
+
+						if not flag5 then
+							flag5 = true
+							task.spawn(v21)
+						end
+					end)
+
+					task.spawn(function()
+						pcall(function()
+							if not tbl2.Scheduler._CancelHop then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+							end
+						end)
+					end)
+
+					task.delay(6, function()
+						if not flag5 then
+							flag5 = true
+							task.spawn(v21)
+						end
+					end)
+
+					coroutine.yield()
+
+					pcall(function()
+						connection:Disconnect()
+					end)
+
+					pcall(function()
+						v16:ClearError()
+					end)
+
+					if game.JobId ~= jobId or tbl2.Scheduler._CancelHop then
+						break
+					else
+						if flag4 then
+							task.wait(0.8)
+						end
+
+						continue
+					end
+				end
+
+				break
+			end
+
+			tbl4[arg] = false
+			tbl2.Scheduler._IsJoiningActive = false
+
+			if game.JobId == jobId and not tbl2.Scheduler._CancelHop then
+				if tbl6 and tbl6.SendNotify then
+					tbl6:SendNotify("Hopping Server", "All candidate servers were full. Hopping to random server...", 5, tbl8, "ServerHop")
+				end
+
+				tbl2.Scheduler.ServerHop(0, true)
+			end
+		end)
+	end
+
+	tbl6.JoinAPI = joinAPI
+
+	tbl6.JoinAPI = function(arg, arg2, arg3)
+		return joinAPI(arg2, arg3)
+	end
+
+	local function fn7()
+		local tbl8 = {
+			ActiveTween = nil,
+			ActiveTweenTarget = nil,
+			ActiveBoatTween = nil,
+			PlayerSpawns = worldOrigin.PlayerSpawns.Pirates,
+			Locations = worldOrigin.Locations,
+			StopBoatFlag = false,
+			StopCurrentTween = nil,
+		}
+
+		local n = 0
+
+		local tbl9 = {
+			Sea_1 = {
+				Vector3.new(-7894.62, 5545.49, -380.25),
+				Vector3.new(-4607.82, 872.54, -1667.56),
+				Vector3.new(61163.85, 11.76, 1819.78),
+				Vector3.new(3876.28, 35.11, -1939.32),
+			},
+			Sea_2 = {
+				Vector3.new(-288.46, 306.13, 598),
+				Vector3.new(2284.91, 15.15, 905.48),
+				Vector3.new(923.21, 126.98, 32852.83),
+				Vector3.new(-6508.56, 89.03, -132.84),
+			},
+			Sea_3 = {
+				Vector3.new(-5058, 314, -3170),
+				Vector3.new(-12463, 374, -7550),
+				Vector3.new(5670, 1020, -340),
+				Vector3.new(28286, 14897, 103),
+			},
+		}
+
+		local flag4 = false
+		local flag5 = false
+		local n2 = 0
+		local n3 = 5
+		local bodyVelocity = nil
+
+		local function fn8(character2)
+			character = character2
+			humanoid = character2:WaitForChild("Humanoid", 10)
+			humanoidRootPart = character2:WaitForChild("HumanoidRootPart", 10)
+		end
+
+		local function fn9()
+			local v19 = next
+			local children, v20 = v18.Character:GetChildren()
+
+			for _, v21 in v19, children, v20 do
+				if v21:IsA("BasePart") and v21.CanCollide then
+					v21.CanCollide = false
+				end
+			end
+		end
+
+		local function fn10()
+			if not humanoidRootPart then
+				return
+			end
+
+			if not humanoidRootPart:FindFirstChild("PartVelocuty") then
+				if bodyVelocity then
+					bodyVelocity:Destroy()
+				end
+
+				bodyVelocity = Instance.new("BodyVelocity", humanoidRootPart)
+				bodyVelocity.Name = "PartVelocuty"
+				bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+				bodyVelocity.Velocity = Vector3.zero
+				bodyVelocity.P = 1000
+			end
+		end
+
+		v18.CharacterAdded:Connect(fn8)
+
+		if v18.Character then
+			fn8(v18.Character)
+		end
+
+		local locations = tbl8.Locations
+
+		local function fn11()
+			local v19 = humanoidRootPart
+			if not v19 or not v19.Parent then
+				return false
+			end
+			local humanoid2 = v19.Parent:FindFirstChildOfClass("Humanoid")
+			return humanoid2 and humanoid2.Parent and humanoid2.Health > 0
+		end
+
+		local function fn12(arg)
+			local position = arg.Position
+			local v19 = next
+			local children, v20 = locations:GetChildren()
+
+			for _, v21 in v19, children, v20 do
+				if (position - v21.Position).Magnitude <= v21.Mesh.Scale.X then
+					return v21
+				end
+			end
+
+			return { Name = "" }
+		end
+
+		local function fn13(arg)
+			local position = arg.Position
+			local sea1 = flag and tbl9.Sea_1 or flag2 and tbl9.Sea_2 or flag3 and tbl9.Sea_3 or {}
+			local huge = math.huge
+			local v19 = nil
+
+			for _, v20 in ipairs(sea1) do
+				local magnitude = (v20 - position).Magnitude
+
+				if magnitude < huge then
+					huge = magnitude
+					v19 = v20
+				end
+			end
+
+			return huge <= (position - humanoidRootPart.Position).Magnitude and v19 or nil
+		end
+
+		local function fn14(arg)
+			if (humanoidRootPart.Position - arg).Magnitude > 300 then
+				tbl6:FireInvoke("requestEntrance", arg)
+				task.wait(0.1)
+				fn10()
+				humanoidRootPart.CFrame = humanoidRootPart.CFrame + Vector3.new(0, 20)
+				task.wait(0.5)
+			end
+		end
+
+		local function fn15(arg)
+			local position = arg.Position
+			local v19 = next
+			local children, v20 = tbl8.PlayerSpawns:GetChildren()
+
+			for _, v21 in v19, children, v20 do
+				if (v21.Part.Position - position).Magnitude <= 2500 then
+					return v21
+				end
+			end
+		end
+
+		local function fn16(arg)
+			local name = fn12(arg).Name
+			if name == "" then
+				return false
+			end
+
+			if name:find("Dimension") or name:find("Cursed") or name:find("Submerged") or name == "Sealed Cavern" or name:lower():find("under") or data.LastSpawnPoint.Value == "SubmergedIsland" then
+				return false
+			end
+			return (arg.Position - humanoidRootPart.Position).Magnitude > 3500
+		end
+
+		local function fn17(arg)
+			local v19 = fn15(humanoidRootPart)
+			local magnitude = (arg.Position - humanoidRootPart.Position).Magnitude
+			local position = humanoidRootPart.Position
+			local position2 = arg.Position
+			local v20 = next
+			local children, v21 = tbl8.PlayerSpawns:GetChildren()
+			local huge = math.huge
+			local v22 = nil
+
+			for _, v23 in v20, children, v21 do
+				local position3 = v23.Part.Position
+				local magnitude2 = (position3 - position2).Magnitude
+				local magnitude3 = (position3 - position).Magnitude
+
+				if magnitude >= 3000 and fn15(v23.Part) ~= v19 and magnitude3 <= 10200 and magnitude2 <= huge then
+					huge = magnitude2
+					v22 = v23
+				end
+			end
+
+			return v22
+		end
+
+		local function fn18(arg)
+			if not fn12(humanoidRootPart).Name:find("Submerged") or fn12(arg).Name:find("Submerged") then
+				return
+			end
+			local v19 = humanoidRootPart
+
+			while true do
+				tbl8:topos(CFrame.new(11426, -2155, 9732))
+				task.wait(2)
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				task.wait(2)
+				if not (not fn12(v19).Name:find("Submerged") or not fn11()) then
+					continue
+				end
+				break
+			end
+		end
+
+		local function fn19(arg)
+			while true do
+				local v19 = fn17(arg)
+
+				if not v19 then
+					break
+				else
+					for i = 1, 3 do
+						tbl6:FireInvoke("SetLastSpawnPoint", v19.Name)
+						tbl6:FireInvoke("SetSpawnPoint")
+						v18.Character:PivotTo(v19.Part.CFrame)
+						local humanoid2 = v18.Character:FindFirstChild("Humanoid")
+
+						if humanoid2 then
+							humanoid2.Health = 0
+						end
+					end
+
+					task.wait(0.1)
+
+					while true do
+						task.wait(0.1)
+						if not (v18.Character and v18.Character:FindFirstChild("HumanoidRootPart") and v18.Character:FindFirstChild("Humanoid") and v18.Character:FindFirstChild("Humanoid").Health > 0) then
+							continue
+						end
+						break
+					end
+
+					if not (not fn16(arg) or not fn17(arg)) then
+						continue
+					end
+					break
+				end
+			end
+		end
+
+		local function fn20(arg)
+			local v19 = fn13(arg)
+
+			if v19 and tick() - n2 >= n3 then
+				fn14(v19)
+				n2 = tick()
+				task.wait(1)
+			end
+		end
+
+		local function fn21(arg)
+			if typeof(arg) == "Vector3" then
+				return CFrame.new(arg)
+			end
+
+			if typeof(arg) == "CFrame" then
+				return arg
+			end
+
+			if typeof(arg) == "Instance" and arg:IsA("BasePart") then
+				return arg.CFrame
+			end
+		end
+
+		local function fn22(cFrame, arg)
+			if flag5 then
+				return
+			end
+			n += 1
+			local v19 = n
+			flag4 = false
+			flag5 = true
+			if not humanoidRootPart or not humanoid then
+				flag5 = false
+				return
+			end
+
+			task.spawn(function()
+				local cFrame2 = humanoidRootPart.CFrame
+				local magnitude = (cFrame.Position - cFrame2.Position).Magnitude
+				if magnitude <= 5 then
+					flag5 = false
+					return
+				end
+				local now = tick()
+				local n4 = 0
+
+				while not (v19 ~= n or flag4) do
+					if not humanoid or humanoid.Health <= 0 then
+						break
+					end
+
+					if not humanoidRootPart or not humanoidRootPart.Parent then
+						break
+					end
+					local now2 = tick()
+					local n5 = now2 - now
+					n4 += math.max((tonumber(tbl.TweenSpeed) or 250) * (arg or 1), 0.1) * n5
+					local n6 = math.clamp(n4 / magnitude, 0, 1)
+					humanoidRootPart.CFrame = cFrame2:Lerp(cFrame, n6)
+					if n6 >= 1 or (cFrame.Position - humanoidRootPart.Position).Magnitude <= 10 then
+						humanoidRootPart.CFrame = cFrame
+						break
+					end
+					task.wait()
+					now = now2
+				end
+
+				flag5 = false
+			end)
+		end
+
+		tbl8.StopTween = function()
+			flag4 = true
+			n += 1
+			flag5 = false
+
+			if bodyVelocity then
+				pcall(function()
+					if bodyVelocity.Parent then
+						bodyVelocity:Destroy()
+					end
+				end)
+
+				bodyVelocity = nil
+			end
+
+			if humanoidRootPart then
+				local partVelocuty = humanoidRootPart:FindFirstChild("PartVelocuty")
+
+				if partVelocuty then
+					partVelocuty:Destroy()
+				end
+			end
+		end
+
+		tbl8.topos = function(arg, arg2, arg3, arg4, arg5)
+			if flag5 then
+				return
+			end
+
+			if not fn11() then
+				return
+			end
+			local v19 = fn21(arg2)
+			if not v19 then
+				return
+			end
+			fn18(v19)
+			if not fn11() then
+				return
+			end
+			local pos = flag3 and fn12(humanoidRootPart).Name:find("Temple of Time") or fn12(v19).Name:find("Temple of Time")
+
+			if tbl.BypassTP and fn16(v19) and not pos then
+				fn19(v19)
+				if not fn11() then
+					return
+				end
+			else
+				fn20(v19)
+			end
+
+			if tbl.ForceAnchoredY and not pos then
+				humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.CFrame.X, v19.Y, humanoidRootPart.CFrame.Z)
+			end
+
+			fn9()
+			fn22(v19, arg5)
+			if flag4 then
+				arg:StopTween()
+				return
+			end
+
+			if arg3 then
+				fn10()
+			elseif not arg4 and humanoidRootPart then
+				local partVelocuty = humanoidRootPart:FindFirstChild("PartVelocuty")
+
+				if partVelocuty then
+					partVelocuty:Destroy()
+				end
+			end
+		end
+
+		GetAllBoats = function()
+			local tbl10 = { "My Boat" }
+			local boats2 = v2:FindFirstChild("Boats")
+
+			if boats2 then
+				for _, child in ipairs(boats2:GetChildren()) do
+					local owner = child:FindFirstChild("Owner")
+
+					if owner and owner.Value then
+						local value = owner.Value
+						local name = typeof(value) == "Instance" and value.Name or tostring(value)
+
+						if name ~= v18.Name and value ~= v18 and value ~= v18.Character then
+							tbl10[#tbl10 + 1] = child.Name .. " [" .. name .. "]"
+						end
+					end
+				end
+			end
+
+			return tbl10
+		end
+
+		GetSelectedBoat = function()
+			local sailTargetBoat = tbl.SailTargetBoat
+			local v19 = next
+			local children, v20 = v2.Boats:GetChildren()
+
+			for _, v21 in v19, children, v20 do
+				local owner = v21:FindFirstChild("Owner")
+
+				if owner then
+					if not sailTargetBoat or sailTargetBoat == "My Boat" then
+						local name = v18.Name
+						if tostring(owner.Value) == name then
+							return v21
+						end
+						continue
+					end
+
+					if v21.Name .. " [" .. tostring(owner.Value) .. "]" == sailTargetBoat then
+						return v21
+					end
+				end
+			end
+
+			return nil
+		end
+
+		tbl8.StopBoatTween = function()
+			tbl8.StopBoatFlag = true
+			tbl8.ActiveBoatTween = nil
+		end
+
+		tbl8.toposboat = function(arg, arg2)
+			if tbl8.ActiveBoatTween then
+				return
+			end
+			local v19 = GetSelectedBoat()
+			local vehicleSeat = v19 and v19:FindFirstChild("VehicleSeat")
+			local cframe = typeof(arg2) == "Vector3" and CFrame.new(arg2) or arg2
+			if not (v19 and vehicleSeat and humanoid and humanoid.Sit and cframe) then
+				return
+			end
+			local n4 = tonumber(tbl.BoatPosY) or 31
+			local cframe2 = CFrame.new(cframe.X, n4, cframe.Z)
+			local cframe3 = CFrame.new(vehicleSeat.CFrame.X, n4, vehicleSeat.CFrame.Z)
+			local magnitude = (cframe2.Position - cframe3.Position).Magnitude
+			if magnitude <= 25 then
+				return
+			end
+			tbl8.ActiveBoatTween = true
+			tbl8.StopBoatFlag = false
+			local bodyVelocity2 = Instance.new("BodyVelocity")
+			bodyVelocity2.MaxForce = Vector3.new(1e9, 1e9, 1e9)
+			bodyVelocity2.Velocity = Vector3.zero
+			bodyVelocity2.P = 1e9
+			bodyVelocity2.Parent = vehicleSeat
+
+			task.spawn(function()
+				local now = tick()
+				local n5 = 0
+
+				while not tbl8.StopBoatFlag and humanoid.Health > 0 and humanoid.Sit do
+					local now2 = tick()
+					local n6 = now2 - now
+					local n7 = math.max(tonumber(tbl.SpeedBoat) or 250, 0.1)
+					n5 += n7 * n6
+					local n8 = math.clamp(n5 / magnitude, 0, 1)
+					local v20 = cframe3:Lerp(cframe2, n8)
+					bodyVelocity2.Velocity = (v20.Position - vehicleSeat.CFrame.Position).Magnitude > 0.1 and (v20.Position - vehicleSeat.CFrame.Position).Unit * n7
+					vehicleSeat.CFrame = v20
+					if n8 >= 1 or (cframe2.Position - vehicleSeat.CFrame.Position).Magnitude <= 25 then
+						vehicleSeat.CFrame = cframe2
+						break
+					end
+					task.wait()
+					now = now2
+				end
+
+				if tbl8.StopBoatFlag then
+					bodyVelocity2.Velocity = Vector3.zero
+					bodyVelocity2:Destroy()
+				end
+
+				tbl8.ActiveBoatTween = nil
+				tbl8.StopBoatFlag = false
+			end)
+		end
+
+		return tbl8
+	end
+
+	tbl6.TweenManager = fn7()
+	local tweenManager = tbl6.TweenManager
+
+	local function fn8(arg)
+		local flag4 = not (arg.Team == v18.Team and tostring(arg.Team) == "Marines")
+
+		if flag4 then
+			flag4 = not (arg:HasTag("Ally" .. v18.Name) or v18:HasTag("Ally" .. arg.Name))
+		end
+
+		return flag4
+	end
+
+	local function fn9()
+		local obj4 = setmetatable({}, {
+			__index = {
+				BodyParts = {
+					"RightLowerArm",
+					"RightUpperArm",
+					"LeftLowerArm",
+					"LeftUpperArm",
+					"RightHand",
+					"LeftHand",
+				},
+				LastCombo = 0,
+				ComboTime = 0,
+				GunDebounce = 0,
+				MaxHits = 2,
+				IgnoredTools = {},
+				OverheatData = {
+					Dragonstorm = { MaxOverheat = 3, Cooldown = 0, TotalOverheat = 0, Distance = 500, Shooting = false },
+				},
+				ShootsPerTarget = { ["Dual Flintlock"] = 2 },
+				ShootStyles = {
+					["Skull Guitar"] = "TAP",
+					Bazooka = "Position",
+					Cannon = "Position",
+					Dragonstorm = "Overheat",
+				},
+				RemoteFruits = { ["Blade-Blade"] = true, ["Gas-Gas"] = true },
+				NormalFruits = { ["Light-Light"] = true, ["Ice-Ice"] = true },
+			},
+		})
+
+		local CombatUtil = require(v4.Modules.CombatUtil)
+		local CombatController = require(v4.Controllers.CombatController)
+		local validator2 = remotes:WaitForChild("Validator2")
+		local reRegisterAttack = net:WaitForChild("RE/RegisterAttack")
+		local reShootGunEvent = net:FindFirstChild("RE/ShootGunEvent")
+		local RegisterHit = require(v4.Modules.Net):RemoteEvent("RegisterHit", true)
+
+		local ok, result = pcall(function()
+			return getupvalue(CombatController.Attack, 9)
+		end)
+
+		local function fn10()
+			if not result then
+				pcall(function()
+					result = getupvalue(CombatController.Attack, 9)
+				end)
+			end
+
+			if not result then
+				return 0, 0
+			end
+			local v19 = getupvalue(result, 15)
+			local v20 = getupvalue(result, 13)
+			local v21 = getupvalue(result, 16)
+			local v22 = getupvalue(result, 17)
+			local v23 = getupvalue(result, 14)
+			local v24 = getupvalue(result, 18)
+			local v25 = getupvalue(result, 19)
+			if not v19 or not v20 or not v21 or not v22 or not v23 or not v24 or not v25 then
+				return 0, 0
+			end
+			local n = ((v19 * v23 + v20 * v21) % v22 * v22 + v20 * v23) % v24
+			local n2 = math.floor(n / v22)
+			local n3 = n - n2 * v22
+			local n4 = v25 + 1
+
+			pcall(function()
+				setupvalue(result, 15, n2)
+				setupvalue(result, 13, n3)
+				setupvalue(result, 19, n4)
+			end)
+
+			return math.floor(n / v24 * 16777215), n4
+		end
+
+		local function fn11()
+			pcall(function()
+				local equippedWeapon = character:FindFirstChild("EquippedWeapon")
+				if not humanoid or not equippedWeapon then
+					return
+				end
+				local movesetAnimCache = CombatUtil:GetMovesetAnimCache(humanoid)
+				local weaponName = CombatUtil:GetWeaponName(equippedWeapon)
+				local v19 = movesetAnimCache[CombatUtil:GetPureWeaponName(weaponName) .. "-basic" .. math.random(1, #CombatUtil:GetWeaponData(weaponName).Moveset.Basic)]
+
+				if v19 and not tbl.RemoveAnimationFast then
+					v19:Play(0, 1, (v19:GetAttribute("SpeedMult") or 1) * 5)
+					v19.TimePosition = 0.01
+				end
+			end)
+		end
+
+		local function fn12()
+			if humanoidRootPart and humanoidRootPart:FindFirstChild("Buddha") then
+				return 10
+			end
+			return obj4.MaxHits
+		end
+
+		local tbl8 = {}
+
+		local function fn13(arg, arg2)
+			local tbl9 = {}
+			local v19 = obj4.BodyParts[math.random(#obj4.BodyParts)]
+			arg2 = arg2 or 50
+			local humanoidRootPart2 = humanoidRootPart or v18.Character and (v18.Character:FindFirstChild("HumanoidRootPart") or v18.Character.PrimaryPart)
+			if not humanoidRootPart2 then
+				return tbl9
+			end
+			local v20 = fn12()
+			local tbl10 = {}
+
+			if tbl.attackmobs then
+				local children = enemies:GetChildren()
+
+				for i = 1, #children do
+					local v21 = children[i]
+
+					if not v21:GetAttribute("IsBoat") and tbl6:IsReady(v21) then
+						local humanoidRootPart3 = v21:FindFirstChild("HumanoidRootPart") or v21.PrimaryPart
+
+						if humanoidRootPart3 then
+							local magnitude = (humanoidRootPart3.Position - humanoidRootPart2.Position).Magnitude
+
+							if magnitude <= arg2 then
+								local masteryFarm = not arg and tbl.MasteryFarm
+								local flag4 = false
+
+								if masteryFarm then
+									local humanoid2 = v21:FindFirstChildOfClass("Humanoid")
+									humanoid2 = humanoid2 and humanoid2.Health / humanoid2.MaxHealth <= tbl.HealthMob / 100
+									local flag5 = false
+
+									if humanoid2 then
+										flag4 = true
+									else
+										flag4 = flag5
+									end
+								end
+
+								if not flag4 then
+									local insert = table.insert
+									local tbl11 = {}
+									local v22 = v21:FindFirstChild(v19) or humanoidRootPart3
+									tbl11[1] = v21
+									tbl11[2] = v22
+									tbl11[3] = magnitude
+									insert(tbl10, tbl11)
+								end
+							end
+						end
+					end
+				end
+			end
+
+			if tbl.attackplayers and not v18:GetAttribute("PvpDisabled") then
+				local children = v2.Characters:GetChildren()
+				local character2 = v18 and v18.Character
+
+				for _, child in pairs(children) do
+					if child ~= character2 then
+						local playerFromCharacter = v3:GetPlayerFromCharacter(child)
+						local autoKillPlayerinTrial
+
+						if playerFromCharacter then
+							autoKillPlayerinTrial = tbl.AutoKillPlayerinTrial or fn8(playerFromCharacter)
+						else
+							autoKillPlayerinTrial = playerFromCharacter
+						end
+
+						if autoKillPlayerinTrial then
+							local humanoidRootPart3 = child:FindFirstChild("HumanoidRootPart") or child.PrimaryPart
+
+							if humanoidRootPart3 then
+								local magnitude = (humanoidRootPart3.Position - humanoidRootPart2.Position).Magnitude
+
+								if magnitude <= arg2 then
+									table.insert(tbl10, { child, humanoidRootPart3, magnitude })
+								end
+							end
+						end
+					end
+				end
+			end
+
+			table.sort(tbl10, function(arg3, arg4)
+				return arg3[3] < arg4[3]
+			end)
+
+			for i = 1, math.min(#tbl10, v20) do
+				table.insert(tbl9, { tbl10[i][1], tbl10[i][2] })
+			end
+
+			return tbl9
+		end
+
+		local function fn14(arg, arg2, arg3)
+			tbl8 = {}
+			arg = arg or 500
+			local character2 = v18.Character or character
+			local humanoidRootPart2
+
+			if character2 then
+				humanoidRootPart2 = character2:FindFirstChild("HumanoidRootPart") or character2.PrimaryPart
+			else
+				humanoidRootPart2 = character2
+			end
+
+			if not humanoidRootPart2 then
+				return
+			end
+			local tbl9 = {}
+
+			if arg2 or tbl.attackmobs then
+				for _, child in ipairs(enemies:GetChildren()) do
+					local flag4 = not child:GetAttribute("IsBoat")
+					local v19 = tbl6:IsReady(child)
+
+					if flag4 and v19 and child ~= character2 then
+						local primaryPart = child.PrimaryPart or child:FindFirstChild("HumanoidRootPart")
+						local playerFromCharacter = v3:GetPlayerFromCharacter(child)
+
+						if primaryPart and (child.Parent ~= v2.Characters or playerFromCharacter and fn8(playerFromCharacter)) then
+							local magnitude = (humanoidRootPart2.Position - primaryPart.Position).Magnitude
+
+							if magnitude <= arg then
+								table.insert(tbl9, { child, primaryPart, magnitude })
+							end
+						end
+					end
+				end
+			end
+
+			if arg2 or tbl.attackplayers and not v18:GetAttribute("PvpDisabled") then
+				for _, child in ipairs(v2.Characters:GetChildren()) do
+					if child ~= character2 then
+						local playerFromCharacter = v3:GetPlayerFromCharacter(child)
+						local autoKillPlayerinTrial
+
+						if playerFromCharacter then
+							autoKillPlayerinTrial = tbl.AutoKillPlayerinTrial or fn8(playerFromCharacter)
+						else
+							autoKillPlayerinTrial = playerFromCharacter
+						end
+
+						if autoKillPlayerinTrial then
+							local humanoidRootPart3 = child:FindFirstChild("HumanoidRootPart") or child.PrimaryPart
+
+							if humanoidRootPart3 then
+								local magnitude = (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude
+
+								if magnitude <= arg then
+									table.insert(tbl9, { child, humanoidRootPart3, magnitude })
+								end
+							end
+						end
+					end
+				end
+			end
+
+			if arg3 then
+				for _, child in ipairs(seaBeasts:GetChildren()) do
+					local meshPart = child:FindFirstChildOfClass("MeshPart") or child:FindFirstChild("HumanoidRootPart") or child.PrimaryPart
+
+					if tbl6:IsReady(child) and meshPart then
+						local magnitude = (humanoidRootPart2.Position - meshPart.Position).Magnitude
+
+						if magnitude < arg then
+							table.insert(tbl9, { child, meshPart, magnitude })
+						end
+					end
+				end
+
+				for _, child in ipairs(enemies:GetChildren()) do
+					if child:GetAttribute("IsBoat") then
+						local meshPart = child:FindFirstChildOfClass("MeshPart") or child.PrimaryPart or child:FindFirstChildWhichIsA("BasePart")
+
+						if tbl6:IsReady(child) and meshPart then
+							local magnitude = (humanoidRootPart2.Position - meshPart.Position).Magnitude
+
+							if magnitude < arg then
+								table.insert(tbl9, { child, meshPart, magnitude })
+							end
+						end
+					end
+				end
+			end
+
+			table.sort(tbl9, function(arg4, arg5)
+				return arg4[3] < arg5[3]
+			end)
+
+			for _, v19 in ipairs(tbl9) do
+				table.insert(tbl8, { v19[1], v19[2] })
+			end
+		end
+
+		local function fn15()
+			if #tbl8 == 0 then
+				return nil, nil
+			end
+			local v19 = tbl8[1]
+			if not v19 or not v19[2] then
+				return nil, nil
+			end
+			return v19[2].Position, v19[2]
+		end
+
+		local function fn16(arg)
+			fn14(arg, true, true)
+			if #tbl8 > 0 and tbl8[1] and tbl8[1][2] then
+				return tbl8[1][2]
+			end
+			return nil
+		end
+
+		local handlers = { ["Skull Guitar"] = function(arg, arg2)
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+		end }
+
+		local function fn17()
+			local character2 = v18.Character or character
+			local tool = character2 and character2:FindFirstChildOfClass("Tool")
+
+			if not tool or tool.ToolTip ~= "Gun" then
+				if v18.Backpack then
+					for _, child in ipairs(v18.Backpack:GetChildren()) do
+						if child:IsA("Tool") and child.ToolTip == "Gun" then
+							if character2 and character2:FindFirstChildOfClass("Humanoid") then
+								character2.Humanoid:EquipTool(child)
+								tool = child
+								task.wait(0.05)
+							end
+
+							break
+						end
+					end
+				end
+			end
+
+			if not tool or not tool.Enabled then
+				return
+			end
+			tool.Enabled = true
+			tool:SetAttribute("IsReloading_Client", false)
+			tool:SetAttribute("LocalShotsLeft", 100)
+			tool:SetAttribute("LocalTotalShots", (tool:GetAttribute("LocalTotalShots") or 0) + 1)
+			local distance = obj4.OverheatData[tool.Name] and obj4.OverheatData[tool.Name].Distance
+			local n = 500
+
+			if distance then
+				n = obj4.OverheatData[tool.Name].Distance
+			end
+
+			fn14(n, false, true)
+
+			if #tbl8 == 0 then
+				local v19 = fn16(n)
+
+				if v19 then
+					table.insert(tbl8, { v19.Parent, v19 })
+				end
+			end
+
+			if #tbl8 == 0 then
+				return
+			end
+			local v19, v20 = fn15()
+			if not v19 or not v20 then
+				return
+			end
+
+			if handlers[tool.Name] then
+				handlers[tool.Name](tool, v19)
+				return
+			end
+			local str4 = obj4.ShootStyles[tool.Name]
+
+			if not str4 then
+				str4 = tool:FindFirstChild("RemoteEvent") and "TAP" or "Normal"
+			end
+
+			local n2 = obj4.ShootsPerTarget[tool.Name] or 1
+
+			pcall(function()
+				local v21, v22 = fn10()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+
+				if tool:FindFirstChild("RemoteEvent") and (str4 == "TAP" or tool.Name == "Skull Guitar") then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				elseif reShootGunEvent then
+					for i = 1, n2 do
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					end
+				end
+			end)
+		end
+
+		local function fn18(arg, arg2)
+			if not arg2 or not arg2:FindFirstChild("LeftClickRemote") then
+				return
+			end
+			local humanoidRootPart2 = character and character:FindFirstChild("HumanoidRootPart")
+			if not humanoidRootPart2 then
+				return
+			end
+			local position = humanoidRootPart2.Position
+
+			for _, child in ipairs(enemies:GetChildren()) do
+				if tbl6:IsReady(child) and not child:GetAttribute("IsBoat") then
+					local primaryPart = child.PrimaryPart or child:FindFirstChild("HumanoidRootPart")
+
+					if primaryPart and (primaryPart.Position - position).Magnitude <= 60 then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					end
+				end
+			end
+
+			for _, child in ipairs(seaBeasts:GetChildren()) do
+				if tbl6:IsReady(child) then
+					local meshPart = child:FindFirstChildOfClass("MeshPart") or child.PrimaryPart
+
+					if meshPart and (meshPart.Position - position).Magnitude <= 70 then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					end
+				end
+			end
+		end
+
+		local function fn19(arg)
+			local character2 = v18.Character or character
+			local tool = character2 and character2:FindFirstChildOfClass("Tool")
+
+			if not tool or tool.ToolTip ~= "Gun" then
+				if v18.Backpack then
+					for _, child in ipairs(v18.Backpack:GetChildren()) do
+						if child:IsA("Tool") and child.ToolTip == "Gun" then
+							if character2 and character2:FindFirstChildOfClass("Humanoid") then
+								character2.Humanoid:EquipTool(child)
+								tool = child
+								task.wait(0.05)
+							end
+
+							break
+						end
+					end
+				end
+			end
+
+			if not tool or not tool.Enabled then
+				return
+			end
+			tool.Enabled = true
+			tool:SetAttribute("IsReloading_Client", false)
+			tool:SetAttribute("LocalShotsLeft", 100)
+			tool:SetAttribute("LocalTotalShots", (tool:GetAttribute("LocalTotalShots") or 0) + 1)
+			if handlers[tool.Name] then
+				return handlers[tool.Name](tool, arg)
+			end
+
+			pcall(function()
+				local v19, v20 = fn10()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+
+				if obj4.ShootStyles[tool.Name] == "TAP" and tool:FindFirstChild("RemoteEvent") then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				elseif reShootGunEvent then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				end
+			end)
+		end
+
+		local function fn20()
+			for _, child in ipairs(v18.Backpack:GetChildren()) do
+				if child:IsA("Tool") and child.ToolTip == "Blox Fruit" and child:FindFirstChild("LeftClickRemote") then
+					return child
+				end
+			end
+
+			return nil
+		end
+
+		local function fn21()
+			local tool = character:FindFirstChildOfClass("Tool")
+			local toolTip = tool and tool.ToolTip or nil
+
+			if tbl.DoubleAttack then
+				local v19 = fn20()
+
+				if v19 and v19:FindFirstChild("LeftClickRemote") then
+					pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					end)
+				end
+			end
+
+			if not tool then
+				if not tbl.DoubleAttack then
+					return
+				end
+				local v19 = fn20()
+				if not v19 then
+					return
+				end
+				tool = v19
+				toolTip = "Blox Fruit"
+			end
+
+			if not table.find({ "Melee", "Blox Fruit", "Sword", "Gun" }, toolTip) then
+				return
+			end
+
+			if tbl.FastSettings == "Fast Attack" then
+				if toolTip == "Gun" then
+					fn17()
+					return
+				end
+				local leftClickRemote = tool:FindFirstChild("LeftClickRemote")
+				local v19 = fn13(toolTip == "Blox Fruit" and leftClickRemote ~= nil)
+
+				if toolTip == "Blox Fruit" and not obj4.NormalFruits[tool.Name] and not obj4.RemoteFruits[tool.Name] then
+					if tool:FindFirstChild("LeftClickRemote") and (tbl.DoubleAttack or character:FindFirstChildOfClass("Tool") == tool) then
+						pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+						end)
+					end
+				elseif toolTip == "Blox Fruit" and obj4.RemoteFruits[tool.Name] then
+					local lastCombo = obj4.LastCombo
+					local comboTime = obj4.ComboTime
+
+					if tick() - comboTime > 0.65 then
+						lastCombo = 0
+					end
+
+					local lastCombo2
+
+					if lastCombo >= 5 then
+						lastCombo2 = 1
+					else
+						lastCombo2 = lastCombo + 1
+					end
+
+					obj4.LastCombo = lastCombo2
+					obj4.ComboTime = tick()
+
+					if tool:FindFirstChild("LeftClickRemote") then
+						fn18(lastCombo2, tool)
+					end
+				else
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					fn11()
+					local tbl9 = {}
+					local v20 = nil
+
+					for _, v21 in ipairs(v19) do
+						if v21[1] and v21[2] then
+							table.insert(tbl9, v21)
+							v20 = v20 or v21[2]
+						end
+					end
+
+					if v20 and RegisterHit then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					end
+				end
+
+				if tbl.DoubleAttack and toolTip == "Blox Fruit" then
+					local v20 = fn20()
+
+					if v20 and v20 ~= tool and v20:FindFirstChild("LeftClickRemote") then
+						if obj4.RemoteFruits and obj4.RemoteFruits[v20.Name] then
+							fn18(obj4.LastCombo or 1, v20)
+						else
+							pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+							end)
+						end
+					end
+				end
+			elseif tbl.FastSettings == "Legit Attack" then
+				local function fn22(arg)
+					local humanoidRootPart2 = arg:FindFirstChild("HumanoidRootPart")
+					local upperTorso = arg:FindFirstChild("UpperTorso")
+
+					if humanoidRootPart2 and upperTorso and (humanoidRootPart2.Position - humanoidRootPart.Position).Magnitude <= 50 then
+						upperTorso.Size = Vector3.new(70, 70, 70)
+						upperTorso.Transparency = 1
+						upperTorso.CanCollide = false
+						upperTorso.Massless = true
+						CombatController:Attack(tool)
+					end
+				end
+
+				for _, child in ipairs(enemies:GetChildren()) do
+					if tbl6:IsReady(child) then
+						fn22(child)
+					end
+				end
+
+				if tbl.attackplayers and not v18:GetAttribute("PvpDisabled") then
+					for _, child in ipairs(v2.Characters:GetChildren()) do
+						if child ~= v18.Character then
+							local playerFromCharacter = v3:GetPlayerFromCharacter(child)
+
+							if playerFromCharacter then
+								playerFromCharacter = tbl.AutoKillPlayerinTrial or fn8(playerFromCharacter)
+							end
+
+							if playerFromCharacter then
+								fn22(child)
+							end
+						end
+					end
+				end
+			end
+		end
+
+		return (setmetatable({ Attack = fn21, ShootGun = fn17, CustomShoot = fn19, GetHits = fn13, AttackManager = obj4 }, { __call = function(...)
+			return fn21(select(2, ...))
+		end }))
+	end
+
+	tbl6.FastAttack = fn9()
+	local fastAttack = tbl6.FastAttack
+	local shootGun = fastAttack.ShootGun
+	local customShoot = fastAttack.CustomShoot
+
+	local function fn10()
+		return { GetFruitStock = function()
+			local ok, result = pcall(function()
+				return tbl6:FireInvoke("GetFruits")
+			end)
+
+			local ok2, result2 = pcall(function()
+				return tbl6:FireInvoke("GetFruits", true)
+			end)
+
+			local tbl8 = {}
+			local tbl9 = {}
+
+			if ok and typeof(result) == "table" then
+				for _, v19 in next, result, nil do
+					if type(v19) == "table" and (v19.OnSale == true or v19.InStock == true) then
+						tbl8[#tbl8 + 1] = "<font color=\"#00BFFF\">[ * ]</font> " .. tostring(v19.Name or "Unknown"):gsub("%-.*", "") .. " â€” $" .. math.floor(tonumber(v19.Price) or 0)
+					end
+				end
+			end
+
+			if ok2 and typeof(result2) == "table" then
+				for _, v19 in next, result2, nil do
+					if type(v19) == "table" and (v19.OnSale == true or v19.InStock == true) then
+						tbl9[#tbl9 + 1] = "<font color=\"#FFD700\">[  ]</font> " .. tostring(v19.Name or "Unknown"):gsub("%-.*", "") .. " â€” $" .. math.floor(tonumber(v19.Price) or 0)
+					end
+				end
+			end
+
+			local restockIn = type(result) == "table" and result.RestockIn or 14400 - os.time() % 14400
+			local restockIn2 = type(result2) == "table" and result2.RestockIn or 7200 - os.time() % 7200
+
+			local function fn11(arg)
+				local n = math.floor(arg / 3600)
+				local n2 = math.floor(arg % 3600 / 60)
+				local n3 = arg % 60
+				return n > 0 and n .. "h " .. n2 .. "m " .. n3 .. "s" or n2 > 0 and n2 .. "m " .. n3 .. "s" or n3 .. "s"
+			end
+
+			return ([[<font color="#00BFFF"><b>Normal Dealer</b></font>
+%s
+Restock: %s
+
+%s
+
+<font color="#FFD700"><b>Mirage Dealer</b></font>
+%s
+Restock: %s
+
+%s]]):format("<font color=\"#333333\">â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</font>", fn11(restockIn), #tbl8 > 0 and table.concat(tbl8, "\n") or "No fruits in stock", "<font color=\"#333333\">â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</font>", fn11(restockIn2), #tbl9 > 0 and table.concat(tbl9, "\n") or "No fruits in stock")
+		end }
+	end
+
+	tbl6.ServerStatus = fn10()
+	local serverStatus = tbl6.ServerStatus
+
+	tbl6.DataList = {
+		BonesList = {
+			["Reborn Skeleton"] = true,
+			["Living Zombie"] = true,
+			["Demonic Soul"] = true,
+			["Posessed Mummy"] = true,
+		},
+		CakesList = {
+			["Head Baker"] = true,
+			["Baking Staff"] = true,
+			["Cake Guard"] = true,
+			["Cookie Crafter"] = true,
+		},
+		RaceList = {
+			Fishman = CFrame.new(28224.057, 14889.427, -210.587),
+			Human = CFrame.new(29237.295, 14889.427, -206.95),
+			Cyborg = CFrame.new(28492.414, 14894.427, -422.11),
+			Skypiea = CFrame.new(28967.408, 14918.075, 234.312),
+			Ghoul = CFrame.new(28672.721, 14889.128, 454.596),
+			Mink = CFrame.new(29020.66, 14889.427, -379.268),
+		},
+		HumanRace = { Orbitus = true, Diamond = true, Jeremy = true },
+		TyrantList = {
+			["Serpent Hunter"] = true,
+			["Skull Slayer"] = true,
+			["Isle Champion"] = true,
+			["Sun-kissed Warrior"] = true,
+		},
+	}
+
+	local function fn11()
+		local tbl8 = {
+			ActiveTweens = {},
+			SpawnCache = {},
+			MobCycle = {},
+			NextSpawnCooldown = {},
+			OrbitAngle = 0,
+			OrbitSpeed = 3,
+			LastTick = tick(),
+			GetFarmCFrame = function(arg, arg2)
+				if not arg2 then
+					return nil
+				end
+				local posMethod = tbl.PosMethod or "Above"
+				local position = arg2.Position
+				local tool = character and character:FindFirstChildOfClass("Tool")
+				tool = tool and tool.ToolTip == "Blox Fruit"
+				local n = tonumber(tbl.PosY) or tool and 6 or 18
+				local n2
+
+				if tool then
+					n2 = math.clamp(n, 3, 8)
+				else
+					n2 = math.clamp(n, 5, 25)
+				end
+
+				if posMethod == "Orbit" then
+					local now = tick()
+					local n3 = now - arg.LastTick
+					arg.LastTick = now
+					arg.OrbitAngle = arg.OrbitAngle + arg.OrbitSpeed * n3
+					local n4 = tonumber(tbl.CircleRadius) or tool and 6 or n2
+					return CFrame.new(position + Vector3.new(math.cos(arg.OrbitAngle) * n4, n2, math.sin(arg.OrbitAngle) * n4))
+				end
+
+				return CFrame.new(position + Vector3.new(0, n2, 0.5))
+			end,
+			GetDistance = function(arg, arg2)
+				if typeof(arg2) == "CFrame" then
+					return v18:DistanceFromCharacter(arg2.Position)
+				end
+
+				if typeof(arg2) == "Vector3" then
+					return v18:DistanceFromCharacter(arg2)
+				end
+			end,
+			AutoHaki = function()
+				if not v18.Character:HasTag("Buso") and beli.Value >= 25000 then
+					tbl6:FireInvoke("BuyHaki", "Buso")
+				elseif v18.Character:HasTag("Buso") and not v18.Character:FindFirstChild("HasBuso") then
+					tbl6:FireInvoke("Buso")
+				end
+			end,
+			CheckToolName = function(arg, arg2)
+				local backpack = v18 and v18.Backpack
+				if character then
+					return character:FindFirstChild(arg2) or backpack:FindFirstChild(arg2)
+				end
+			end,
+			Checkfruit = function()
+				local backpack = v18 and v18.Backpack
+				local character2 = v18 and v18.Character
+				local tbl8 = {}
+
+				if backpack then
+					table.insert(tbl8, backpack:GetChildren())
+				end
+
+				if character2 then
+					table.insert(tbl8, character2:GetChildren())
+				end
+
+				for _, v19 in ipairs(tbl8) do
+					for _, v20 in pairs(v19) do
+						if v20:IsA("Tool") then
+							if v20:FindFirstChild("EatRemote") or v20:FindFirstChild("DropRemote") or v20:GetAttribute("IsPhysical") or v20:GetAttribute("Fruit") or v20.ToolTip ~= "Blox Fruit" and string.find(v20.Name, "Fruit") then
+								return v20.Name
+							end
+						end
+					end
+				end
+
+				return nil
+			end,
+			EquipTool = function(arg, arg2)
+				local backpack = v18 and v18.Backpack
+
+				if backpack and humanoid and backpack:FindFirstChild(arg2) then
+					humanoid:EquipTool(backpack[arg2])
+				end
+			end,
+			EquipWeapon = function(arg, arg2)
+				local selectWeapon = arg2 or tbl.SelectWeapon
+				local backpack = v18 and v18.Backpack
+
+				for _, child in ipairs(backpack:GetChildren()) do
+					if child and child:IsA("Tool") and child.ToolTip == selectWeapon then
+						arg:EquipTool(child.Name)
+						return true
+					end
+				end
+			end,
+		}
+
+		tbl6.CheckInventory = function(arg, arg2)
+			local ok, result = pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			end)
+
+			if not ok or not result then
+				return nil
+			end
+			local tbl9 = {}
+
+			for _, v19 in next, result, nil do
+				local str4 = tostring(v19.ItemId) .. "_" .. tostring(v19.NetworkedUID)
+				tbl9[str4] = tbl9[str4] or { ItemId = v19.ItemId, UID = v19.NetworkedUID, Attributes = {} }
+
+				if v19.Value ~= nil then
+					tbl9[str4].Attributes[v19.Key] = v19.Value
+				end
+			end
+
+			for _, v19 in next, tbl9, nil do
+				local ok2, result2 = pcall(function()
+					return ItemConfig.match(v19.ItemId)
+				end)
+
+				ok2 = ok2 and result2 and result2:isOk()
+				local str4 = nil
+
+				if ok2 then
+					local v20 = result2:unwrap()
+					local debugLabel = v20 and v20.Index and v20.Index.DebugLabel
+					str4 = nil
+
+					if debugLabel then
+						str4 = tostring(v20.Index.DebugLabel)
+					end
+				end
+
+				if str4 then
+					str4 = str4:match("^(.-)%s*%[") or str4
+				end
+
+				local attributes = v19.Attributes
+
+				if str4 == arg2 and attributes.IsOwned == true then
+					return {
+						Name = str4,
+						ItemId = v19.ItemId,
+						UID = v19.UID,
+						Quantity = attributes.Quantity,
+						Mastery = attributes.Mastery,
+						IsOwned = attributes.IsOwned,
+						IsEquipped = attributes.IsEquipped,
+						Attributes = attributes,
+					}
+				end
+			end
+
+			return nil
+		end
+
+		tbl8.CheckInventory = function(arg, arg2, arg3, arg4)
+			local ok, result = pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			end)
+
+			if not ok or not result then
+				local n = arg2 == "Material" and 0
+				local n2
+
+				if n then
+					n2 = n
+				else
+					n2 = arg2 == "Sword" and 0
+				end
+
+				return n2 or false
+			end
+
+			local tbl9 = {}
+
+			for _, v19 in next, result, nil do
+				local str4 = tostring(v19.ItemId) .. "_" .. tostring(v19.NetworkedUID)
+				tbl9[str4] = tbl9[str4] or { ItemId = v19.ItemId, UID = v19.NetworkedUID, Attributes = {} }
+
+				if v19.Value ~= nil then
+					tbl9[str4].Attributes[v19.Key] = v19.Value
+				end
+			end
+
+			for _, v19 in next, tbl9, nil do
+				local ok2, result2 = pcall(function()
+					return ItemConfig.match(v19.ItemId)
+				end)
+
+				ok2 = ok2 and result2 and result2:isOk()
+				local str4 = nil
+
+				if ok2 then
+					local v20 = result2:unwrap()
+					local debugLabel = v20 and v20.Index and v20.Index.DebugLabel
+					str4 = nil
+
+					if debugLabel then
+						str4 = tostring(v20.Index.DebugLabel)
+					end
+				end
+
+				if str4 then
+					if string.lower(str4:match("^(.-)%s*%[") or str4) ~= string.lower(arg3) then
+						continue
+					end
+					local attributes = v19.Attributes
+					if arg2 == "Material" then
+						return attributes.Quantity or 0
+					end
+
+					if arg2 == "Moveset" then
+						return attributes.Mastery or 0
+					end
+
+					if arg2 == "Mastery" then
+						return (attributes.Mastery or 0) >= (arg4 or 0)
+					end
+				end
+			end
+
+			return arg2 == "Material" and 0 or arg2 == "Sword" and 0 or false
+		end
+
+		tbl8.GetConnectMon = function(arg, arg2, arg3)
+			local humanoidRootPart2 = v18.Character and v18.Character:FindFirstChild("HumanoidRootPart")
+			local flag4 = type(arg2) == "table"
+			local flag5 = type(arg2) == "string"
+			if arg3 and not humanoidRootPart2 then
+				return nil
+			end
+			local tbl9 = {}
+
+			if enemies then
+				table.insert(tbl9, enemies)
+			end
+
+			table.insert(tbl9, v4)
+			local huge = math.huge
+			local v19 = nil
+
+			for _, v20 in next, tbl9, nil do
+				local v21 = next
+				local children, v22 = v20:GetChildren()
+
+				for _, v23 in v21, children, v22 do
+					if flag5 then
+						if v23.Name == arg2 then
+							local v24 = v23:IsDescendantOf(v2)
+							local flag6 = v23.Parent == v4 or v23:IsDescendantOf(v4)
+
+							if v24 and tbl6:IsReady(v23) or flag6 and v23:FindFirstChild("HumanoidRootPart") ~= nil then
+								if not arg3 then
+									return v23
+								end
+								local humanoidRootPart3 = v23:FindFirstChild("HumanoidRootPart") or v23.PrimaryPart
+
+								if humanoidRootPart3 then
+									local magnitude = (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude
+
+									if flag6 then
+										magnitude += 50000
+									end
+
+									if magnitude < huge then
+										huge = magnitude
+										v19 = v23
+									end
+								end
+
+								continue
+							end
+
+							continue
+						end
+
+						if string.lower(v23.Name) ~= string.lower(arg2) then
+							continue
+						end
+						local v24 = v23:IsDescendantOf(v2)
+						local flag6 = v23.Parent == v4 or v23:IsDescendantOf(v4)
+
+						if v24 and tbl6:IsReady(v23) or flag6 and v23:FindFirstChild("HumanoidRootPart") ~= nil then
+							if not arg3 then
+								return v23
+							end
+							local humanoidRootPart3 = v23:FindFirstChild("HumanoidRootPart") or v23.PrimaryPart
+
+							if humanoidRootPart3 then
+								local magnitude = (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude
+
+								if flag6 then
+									magnitude += 50000
+								end
+
+								if magnitude < huge then
+									huge = magnitude
+									v19 = v23
+								end
+							end
+
+							continue
+						end
+
+						continue
+					end
+
+					if flag4 then
+						local flag6 = arg2[v23.Name] == true or table.find(arg2, v23.Name) ~= nil
+
+						if not flag6 then
+							for _, v24 in next, arg2, nil do
+								if typeof(v24) == "string" and string.lower(v24) == string.lower(v23.Name) then
+									flag6 = true
+									break
+								end
+							end
+
+							if flag6 then
+								local v24 = v23:IsDescendantOf(v2)
+								local flag7 = v23.Parent == v4 or v23:IsDescendantOf(v4)
+
+								if v24 and tbl6:IsReady(v23) or flag7 and v23:FindFirstChild("HumanoidRootPart") ~= nil then
+									if not arg3 then
+										return v23
+									end
+									local humanoidRootPart3 = v23:FindFirstChild("HumanoidRootPart") or v23.PrimaryPart
+
+									if humanoidRootPart3 then
+										local magnitude = (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude
+
+										if flag7 then
+											magnitude += 50000
+										end
+
+										if magnitude < huge then
+											huge = magnitude
+											v19 = v23
+										end
+									end
+
+									continue
+								end
+
+								continue
+							end
+
+							continue
+						end
+
+						if flag6 then
+							local v24 = v23:IsDescendantOf(v2)
+							local flag7 = v23.Parent == v4 or v23:IsDescendantOf(v4)
+
+							if v24 and tbl6:IsReady(v23) or flag7 and v23:FindFirstChild("HumanoidRootPart") ~= nil then
+								if not arg3 then
+									return v23
+								end
+								local humanoidRootPart3 = v23:FindFirstChild("HumanoidRootPart") or v23.PrimaryPart
+
+								if humanoidRootPart3 then
+									local magnitude = (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude
+
+									if flag7 then
+										magnitude += 50000
+									end
+
+									if magnitude < huge then
+										huge = magnitude
+										v19 = v23
+									end
+								end
+
+								continue
+							end
+						end
+					end
+				end
+			end
+
+			return v19
+		end
+
+		tbl8.CheckMon = function(arg, arg2)
+			return arg:GetConnectMon(arg2) ~= nil
+		end
+
+		tbl8.GetEnemies = function(arg, arg2)
+			return arg:GetConnectMon(arg2, true)
+		end
+
+		tbl8.BringCache = {}
+		local n = 0
+		local n2 = 0
+
+		tbl8.BringEnemies = function(arg, arg2)
+			if not tbl.BringMonster then
+				return
+			end
+			local humanoidRootPart2 = character and character:FindFirstChild("HumanoidRootPart")
+			local humanoidRootPart3 = arg2 and (arg2:FindFirstChild("HumanoidRootPart") or arg2.PrimaryPart)
+			if not humanoidRootPart2 or not humanoidRootPart3 then
+				return
+			end
+			local now = tick()
+			if now - n < 0.25 then
+				return
+			end
+			n = now
+			local n3 = tonumber(tbl.BringMonsterRadius) or 350
+			local n4 = math.clamp(n3 + 50, 100, 500)
+
+			if now - n2 > 3 then
+				n2 = now
+
+				pcall(function()
+					sethiddenproperty(v18, "SimulationRadius", n4)
+					sethiddenproperty(v18, "MaxSimulationRadius", n4)
+				end)
+			end
+
+			tbl8.BringCache[arg2.Name] = humanoidRootPart3.CFrame
+			local tagged = v5:GetTagged("QuantumBringTag")
+
+			for _, v19 in next, tagged, nil do
+				local humanoid2 = v19:FindFirstChildOfClass("Humanoid")
+
+				if not v19.Parent or not humanoid2 or humanoid2.Health <= 0 then
+					pcall(function()
+						v19:RemoveTag("QuantumBringTag")
+					end)
+				end
+			end
+
+			if #tagged >= 8 then
+				return
+			end
+			local tbl9 = {}
+			local character2 = v18 and v18.Character
+
+			if v2:FindFirstChild("Characters") then
+				local v19 = next
+				local children, v20 = v2.Characters:GetChildren()
+
+				for _, v21 in v19, children, v20 do
+					if v21 ~= character2 and v21:IsA("Model") then
+						local humanoidRootPart4 = v21:FindFirstChild("HumanoidRootPart") or v21.PrimaryPart
+
+						if humanoidRootPart4 then
+							table.insert(tbl9, humanoidRootPart4.Position)
+						end
+					end
+				end
+			end
+
+			local enemies2 = enemies or v2:FindFirstChild("Enemies")
+			if not enemies2 then
+				return
+			end
+			local v19 = next
+			local children, v20 = enemies2:GetChildren()
+			local n5 = 0
+
+			for _, v21 in v19, children, v20 do
+				if v21 ~= arg2 and v21.Name == arg2.Name and tbl6:IsReady(v21) and not v21:HasTag("QuantumBringTag") and not v3:GetPlayerFromCharacter(v21) then
+					local humanoidRootPart4 = v21:FindFirstChild("HumanoidRootPart") or v21.PrimaryPart
+					local humanoid2 = v21:FindFirstChildOfClass("Humanoid")
+
+					if humanoidRootPart4 and humanoid2 and humanoid2.Health > 0 then
+						local position = humanoidRootPart4.Position
+
+						if (position - humanoidRootPart3.Position).Magnitude <= n3 and (position - humanoidRootPart2.Position).Magnitude <= n3 then
+							local flag4 = false
+
+							for _, v22 in next, tbl9, nil do
+								if (position - v22).Magnitude <= 55 then
+									flag4 = true
+									break
+								end
+							end
+
+							if not flag4 then
+								v21:AddTag("QuantumBringTag")
+								n5 += 1
+								if n5 >= 4 then
+									return
+								end
+								continue
+							end
+
+							continue
+						end
+					end
+				end
+			end
+		end
+
+		v5:GetInstanceAddedSignal("QuantumBringTag"):Connect(function(arg)
+			task.spawn(function()
+				local humanoidRootPart2 = arg:FindFirstChild("HumanoidRootPart") or arg.PrimaryPart
+				local humanoid2 = arg:FindFirstChildOfClass("Humanoid")
+
+				if not humanoidRootPart2 or not humanoid2 then
+					pcall(function()
+						arg:RemoveTag("QuantumBringTag")
+					end)
+
+					return
+				end
+
+				local name = arg.Name
+				local bringBodyPos = humanoidRootPart2:FindFirstChild("BringBodyPos")
+
+				if not bringBodyPos then
+					bringBodyPos = Instance.new("BodyPosition")
+					bringBodyPos.Name = "BringBodyPos"
+					bringBodyPos.MaxForce = Vector3.new(1000000, 1000000, 1000000)
+					bringBodyPos.P = 8000
+					bringBodyPos.D = 600
+					bringBodyPos.Position = humanoidRootPart2.Position
+					bringBodyPos.Parent = humanoidRootPart2
+				end
+
+				local n3 = tick() + 25
+				local n4 = 0
+
+				while true do
+					if tbl.BringMonster and arg.Parent and humanoidRootPart2.Parent and humanoid2.Health > 0 and arg:HasTag("QuantumBringTag") and tick() < n3 then
+						local character2 = v18.Character
+						character2 = character2 and character2:FindFirstChild("HumanoidRootPart")
+						local bringCache = tbl8.BringCache and tbl8.BringCache[name]
+						local n5 = tonumber(tbl.BringMonsterRadius) or 350
+
+						if character2 and bringCache then
+							if (character2.Position - humanoidRootPart2.Position).Magnitude <= n5 + 50 then
+								local v19 = next
+								local children, v20 = arg:GetChildren()
+
+								for _, v21 in v19, children, v20 do
+									if v21:IsA("BasePart") then
+										v21.CanCollide = false
+									end
+								end
+
+								humanoidRootPart2.AssemblyLinearVelocity = Vector3.zero
+								humanoidRootPart2.AssemblyAngularVelocity = Vector3.zero
+								bringBodyPos.Position = bringCache.Position
+								n4 = 0
+							else
+								n4 += 1
+							end
+						else
+							n4 += 1
+						end
+
+						if not (n4 > 15) then
+							task.wait(0.04)
+							continue
+						end
+					end
+
+					break
+				end
+
+				pcall(function()
+					if bringBodyPos and bringBodyPos.Parent then
+						bringBodyPos:Destroy()
+					end
+
+					if arg:HasTag("QuantumBringTag") then
+						arg:RemoveTag("QuantumBringTag")
+					end
+
+					local v19 = next
+					local children, v20 = arg:GetChildren()
+
+					for _, v21 in v19, children, v20 do
+						if v21:IsA("BasePart") then
+							v21.CanCollide = true
+						end
+					end
+				end)
+			end)
+		end)
+
+		tbl8.MobsNextSpawn = function(arg, arg2)
+			if tbl8.NextSpawnCooldown[arg2] then
+				return task.wait()
+			end
+			tbl8.NextSpawnCooldown[arg2] = true
+			task.wait(1)
+
+			if not tbl8.SpawnCache[arg2] then
+				local fortBuilderReplicatedSpawnPositi = v4:FindFirstChild("FortBuilderReplicatedSpawnPositionsFolder")
+				local v19 = next
+				local children, v20 = fortBuilderReplicatedSpawnPositi:GetChildren()
+
+				for _, v21 in v19, children, v20 do
+					if v21:IsA("BasePart") then
+						tbl8.SpawnCache[v21.Name] = tbl8.SpawnCache[v21.Name] or {}
+						table.insert(tbl8.SpawnCache[v21.Name], v21.CFrame)
+					end
+				end
+			end
+
+			local v19 = tbl8.SpawnCache[arg2]
+			if not v19 or #v19 == 0 then
+				tbl8.NextSpawnCooldown[arg2] = nil
+				return
+			end
+			tbl8.MobCycle[arg2] = (tbl8.MobCycle[arg2] or 0) % #v19 + 1
+			tweenManager:topos(CFrame.new(v19[tbl8.MobCycle[arg2]].Position + Vector3.new(0, math.max(tonumber(tbl.PosY) or 15, 1), 0)))
+
+			task.delay(1, function()
+				tbl8.NextSpawnCooldown[arg2] = nil
+			end)
+
+			return arg:GetEnemies({ arg2 })
+		end
+
+		tbl8.StartQuest = function(arg, arg2, arg3, arg4)
+			if tbl.BypassGetQuest then
+				tbl6:FireInvoke("StartQuest", arg2, arg3)
+				task.wait(0.3)
+				return
+			end
+
+			local character2 = v18.Character
+
+			if character2 and character2:FindFirstChild("HumanoidRootPart") and arg:GetDistance(arg4) <= 25 then
+				tbl6:FireInvoke("StartQuest", arg2, arg3)
+				task.wait(0.5)
+			else
+				tweenManager:topos(arg4)
+			end
+		end
+
+		tbl8.ServerHop = function(arg, arg2)
+			tbl2.Scheduler.ServerHop(arg2)
+		end
+
+		tbl8.Rejoin = function()
+			tbl2.Scheduler.Rejoin()
+		end
+
+		local tbl9 = {
+			["Rocket-Rocket"] = 1,
+			["Spin-Spin"] = 2,
+			["Blade-Blade"] = 3,
+			["Chop-Chop"] = 3,
+			["Spring-Spring"] = 4,
+			["Bomb-Bomb"] = 5,
+			["Smoke-Smoke"] = 6,
+			["Spike-Spike"] = 7,
+			["Flame-Flame"] = 8,
+			["Falcon-Falcon"] = 9,
+			["Ice-Ice"] = 10,
+			["Sand-Sand"] = 11,
+			["Dark-Dark"] = 12,
+			["Diamond-Diamond"] = 13,
+			["Light-Light"] = 14,
+			["Ghost-Ghost"] = 15,
+			["Rubber-Rubber"] = 16,
+			["Barrier-Barrier"] = 17,
+			["Magma-Magma"] = 18,
+		}
+
+		tbl8.GetLowestFruit = function()
+			local Net2 = require(v4.Modules.Net)
+
+			local ok, result = pcall(function()
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			end)
+
+			if not ok or not result or type(result) ~= "table" then
+				return nil
+			end
+			local tbl10 = {}
+
+			for _, v19 in ipairs(result) do
+				if v19.Key == "IsOwned" and v19.Value == true then
+					tbl10[v19.ItemId] = true
+				end
+			end
+
+			local huge = math.huge
+			local tbl11 = nil
+
+			for k in pairs(tbl10) do
+				local ok2, result2 = pcall(function()
+					return ItemConfig.match(k)
+				end)
+
+				if ok2 and result2 and result2.isOk and result2:isOk() then
+					local v19 = result2:unwrap()
+
+					if v19 and v19.Index and v19.Index.IdType == "PhysicalMoveset" then
+						local str4 = tostring(v19.Index.DebugLabel or v19.Index.Name or "")
+						local match = str4:match("^(.-)%s*%[") or str4
+						local str5 = tostring(v19.Index.StorageKey or match)
+						local v20 = tbl9[match] or tbl9[str5]
+
+						if v20 and v20 < huge then
+							tbl11 = { Name = match, RawName = match, StorageKey = str5, ItemId = k, Rank = v20 }
+							huge = v20
+						end
+					end
+				end
+			end
+
+			return tbl11
+		end
+
+		tbl8.GetDistance = function(arg, arg2)
+			local humanoidRootPart2 = v18.Character and (v18.Character:FindFirstChild("HumanoidRootPart") or v18.Character.PrimaryPart)
+			if not humanoidRootPart2 or not arg2 then
+				return math.huge
+			end
+
+			if typeof(arg2) ~= "Vector3" then
+				if typeof(arg2) == "CFrame" then
+					arg2 = arg2.Position
+				elseif typeof(arg2) == "Instance" then
+					local isBasePart = arg2:IsA("BasePart") and arg2
+
+					if isBasePart then
+						arg2 = isBasePart
+					else
+						arg2 = arg2:FindFirstChild("HumanoidRootPart") or arg2:FindFirstChild("Head") or arg2.PrimaryPart
+					end
+
+					arg2 = arg2 and arg2.Position
+				else
+					local v19 = nil
+
+					if typeof(arg2) ~= "table" then
+						arg2 = v19
+					else
+						local position = arg2.Position
+
+						if position then
+							arg2 = position
+						else
+							arg2 = arg2.CFrame and arg2.CFrame.Position
+						end
+					end
+				end
+			end
+
+			return arg2 and (humanoidRootPart2.Position - arg2).Magnitude or math.huge
+		end
+
+		tbl8.GetRootPart = function(arg, arg2)
+			if not arg2 then
+				return nil
+			end
+
+			if arg2:IsA("BasePart") then
+				return arg2
+			end
+			return arg2:FindFirstChild("HumanoidRootPart") or arg2:FindFirstChild("Head") or arg2.PrimaryPart or arg2:FindFirstChildWhichIsA("BasePart")
+		end
+
+		tbl8.AttackMob = function(arg)
+			arg:AutoHaki()
+			arg:EquipWeapon(tbl.AutoFarmWeapon)
+		end
+
+		tbl8.SafeTween = function(arg, arg2, arg3)
+			if not arg2 then
+				return
+			end
+			local flag4 = typeof(arg2) == "CFrame" and arg2
+			local cframe
+
+			if flag4 then
+				cframe = flag4
+			else
+				cframe = typeof(arg2) == "Vector3" and CFrame.new(arg2) or nil
+			end
+
+			if not cframe and typeof(arg2) == "Instance" then
+				cframe = arg:GetRootPart(arg2)
+				cframe = cframe and cframe.CFrame
+			end
+
+			if not cframe then
+				return
+			end
+			tweenManager:topos(cframe * CFrame.new(0, arg3 or tonumber(tbl.PosY) or 15, 0))
+		end
+
+		return tbl8
+	end
+
+	tbl6.Utilities = fn11()
+	local utilities = tbl6.Utilities
+
+	HasActiveQuest = function()
+		local quest = v18 and v18:FindFirstChild("PlayerGui") and v18.PlayerGui:FindFirstChild("Main") and v18.PlayerGui.Main:FindFirstChild("Quest")
+		return quest ~= nil and quest.Visible == true
+	end
+
+	GetActiveQuestMob = function()
+		if GuideModule and GuideModule.Data and GuideModule.Data.QuestData then
+			local questData = GuideModule.Data.QuestData
+
+			if questData.Task then
+				local v19 = table.pack(a_1())
+				if v19[1] then
+					return tostring(v19[2])
+				end
+			end
+
+			if questData.Name then
+				return tostring(questData.Name)
+			end
+		end
+
+		local quest = v18 and v18:FindFirstChild("PlayerGui") and v18.PlayerGui:FindFirstChild("Main") and v18.PlayerGui.Main:FindFirstChild("Quest")
+
+		if quest and quest.Visible then
+			local container = quest:FindFirstChild("Container")
+			local questTitle = container and container:FindFirstChild("QuestTitle")
+			questTitle = questTitle and questTitle:FindFirstChild("Title")
+
+			if questTitle and questTitle.Text and questTitle.Text ~= "" then
+				local match = questTitle.Text:match("Defeat%s+%d+%s+(.-)%s+%(") or questTitle.Text:match("Defeat%s+(.-)%s+%(")
+				if match then
+					return match
+				end
+			end
+		end
+
+		return nil
+	end
+
+	VerifyQuest = function(arg)
+		if not arg then
+			return false
+		end
+
+		if not HasActiveQuest() then
+			return false
+		end
+		local v19 = GetActiveQuestMob()
+
+		if v19 then
+			if type(arg) == "table" then
+				for _, v20 in next, arg, nil do
+					local flag4 = type(v20) == "string"
+
+					if flag4 then
+						flag4 = v20:lower() == v19:lower() or v19:lower():find(v20:lower(), 1, true) or v20:lower():find(v19:lower(), 1, true)
+					end
+
+					if flag4 then
+						return true
+					end
+				end
+			else
+				local str4 = tostring(arg):lower()
+				local str5 = v19:lower()
+				if str4 == str5 or str5:find(str4, 1, true) or str4:find(str5, 1, true) then
+					return true
+				end
+			end
+		end
+
+		local quest = v18 and v18:FindFirstChild("PlayerGui") and v18.PlayerGui:FindFirstChild("Main") and v18.PlayerGui.Main:FindFirstChild("Quest")
+		if not quest or not quest.Visible then
+			return false
+		end
+		local container = quest:FindFirstChild("Container")
+		local questTitle = container and container:FindFirstChild("QuestTitle")
+		questTitle = questTitle and questTitle:FindFirstChild("Title")
+		if not questTitle or not questTitle.Text or questTitle.Text == "" then
+			return false
+		end
+		local str4 = questTitle.Text:gsub("-", ""):lower()
+
+		if type(arg) == "table" then
+			for _, v20 in next, arg, nil do
+				if type(v20) ~= "string" then
+					continue
+				end
+				local str5 = v20:gsub("-", ""):lower()
+				if str4:find(str5, 1, true) then
+					return true
+				end
+				local str6 = str5:gsub("man$", "m"):gsub("ies$", "y"):gsub("s$", "")
+				if #str6 >= 4 and str4:find(str6, 1, true) then
+					return true
+				end
+			end
+
+			return false
+		end
+
+		local str5 = tostring(arg):gsub("-", ""):lower()
+		if str4:find(str5, 1, true) then
+			return true
+		end
+		local str6 = str5:gsub("man$", "m"):gsub("ies$", "y"):gsub("s$", "")
+		if #str6 >= 4 and str4:find(str6, 1, true) then
+			return true
+		end
+		return false
+	end
+
+	CheckQuest = function()
+		local n = level and level.Value or 1
+		local sea1 = flag and quests.Sea_1 or flag2 and quests.Sea_2 or flag3 and quests.Sea_3
+
+		if HasActiveQuest() then
+			local v19 = GetActiveQuestMob()
+
+			if v19 and v19 ~= "" then
+				if sea1 then
+					for _, v20 in next, sea1, nil do
+						if v20[3] and v20[3]:lower() == v19:lower() then
+							return { v20[3], v20[4], v20[5], n }
+						end
+
+						if type(v20[6]) == "table" then
+							for i = #v20, 6, -1 do
+								local v21 = v20[i]
+								if type(v21) == "table" and v21[1] and v21[1]:lower() == v19:lower() then
+									return { v21[1], v21[3], v21[4], n }
+								end
+							end
+
+							continue
+						end
+
+						if v20[6] and type(v20[6]) == "string" and v20[6]:lower() == v19:lower() then
+							local tbl8 = {}
+							local v21 = v20[6]
+							local v22 = v20[4]
+							local n2 = v20[5] or 1
+							tbl8[1] = v21
+							tbl8[2] = v22
+							tbl8[3] = n2 + 1
+							tbl8[4] = n
+							return tbl8
+						end
+					end
+				end
+
+				return { v19, "", 0, n }
+			end
+		end
+
+		if not sea1 then
+			return { "", "", 0, n }
+		end
+
+		if flag and n >= 1 and n <= 9 then
+			if tostring(v18.Team) == "Marines" then
+				return { "Trainee", "MarineQuest", 1, n }
+			end
+			return { "Bandit", "BanditQuest1", 1, n }
+		end
+
+		local questFarmMode = tbl.QuestFarmMode or "Double Quest"
+
+		for k, v19 in next, sea1, nil do
+			if n >= v19[1] and n <= v19[2] then
+				if questFarmMode == "Single Quest" or questFarmMode == "1 Quest (Normal Only)" or questFarmMode == "1 Quest" then
+					return { v19[3], v19[4], v19[5], n }
+				end
+				local tbl8
+
+				if type(v19[6]) == "table" then
+					tbl8 = nil
+
+					for i = #v19, 6, -1 do
+						local v20 = v19[i]
+
+						if type(v20) == "table" and v20[1] and v20[2] and v20[3] and v20[4] then
+							if n >= v20[2] and utilities:CheckMon(v20[1]) then
+								tbl8 = { v20[1], v20[3], v20[4], n }
+								break
+							else
+								tbl8 = nil
+							end
+						else
+							tbl8 = nil
+						end
+					end
+				else
+					local flag4 = v19[6] and type(v19[6]) == "string"
+					tbl8 = nil
+
+					if flag4 then
+						local v20 = v19[6]
+						local flag5 = n >= (v19[7] or v19[1]) and utilities:CheckMon(v20)
+						tbl8 = nil
+
+						if flag5 then
+							tbl8 = {}
+							local v21 = v19[4]
+							local n2 = v19[5] or 1
+							tbl8[1] = v20
+							tbl8[2] = v21
+							tbl8[3] = n2 + 1
+							tbl8[4] = n
+						end
+					end
+				end
+
+				if tbl8 then
+					return tbl8
+				end
+
+				if questFarmMode == "Triple Quest" or questFarmMode == "Triple Quest (Normal + Boss + Nearby)" then
+					if not utilities:CheckMon(v19[3]) and k > 1 then
+						local v20 = sea1[k - 1]
+
+						if v20 and n >= v20[1] and utilities:CheckMon(v20[3]) then
+							local humanoidRootPart2 = v18.Character and v18.Character:FindFirstChild("HumanoidRootPart")
+							local enemies2 = utilities:GetEnemies(v20[3])
+							local humanoidRootPart3 = enemies2 and (enemies2:FindFirstChild("HumanoidRootPart") or enemies2.PrimaryPart)
+							local magnitude = humanoidRootPart2 and humanoidRootPart3 and (humanoidRootPart2.Position - humanoidRootPart3.Position).Magnitude or 0
+							if magnitude <= 3000 or magnitude == 0 then
+								return { v20[3], v20[4], v20[5], n }
+							end
+						end
+					end
+				end
+
+				return { v19[3], v19[4], v19[5], n }
+			end
+		end
+
+		local v19 = sea1[#sea1]
+
+		if v19 then
+			if questFarmMode ~= "Single Quest" and questFarmMode ~= "1 Quest (Normal Only)" and questFarmMode ~= "1 Quest" then
+				if type(v19[6]) == "table" then
+					for i = #v19, 6, -1 do
+						local v20 = v19[i]
+
+						if type(v20) == "table" and v20[1] and v20[2] and v20[3] and v20[4] then
+							if n >= v20[2] and utilities:CheckMon(v20[1]) then
+								return { v20[1], v20[3], v20[4], n }
+							end
+						end
+					end
+				elseif v19[6] and type(v19[6]) == "string" then
+					local v20 = v19[6]
+
+					if n >= (v19[7] or v19[1]) and utilities:CheckMon(v20) then
+						local tbl8 = {}
+						local v21 = v19[4]
+						local n2 = v19[5] or 1
+						tbl8[1] = v20
+						tbl8[2] = v21
+						tbl8[3] = n2 + 1
+						tbl8[4] = n
+						return tbl8
+					end
+				end
+			end
+
+			return { v19[3], v19[4], v19[5], n }
+		end
+
+		return { "", "", 0, n }
+	end
+
+	CheckBoss = function(arg)
+		local sea3 = flag3 and bossList.Sea_3 or flag2 and bossList.Sea_2 or flag and bossList.Sea_1
+		if not sea3 then
+			return nil
+		end
+
+		for _, v19 in next, sea3, nil do
+			if v19[2] == arg then
+				return v19
+			end
+		end
+
+		return nil
+	end
+
+	local lua4 = lua3 or fn5("dev/testers.lua")
+
+	tbl6.SendNotify = function(arg, arg2, arg3, arg4, arg5, arg6)
+		pcall(function()
+			if lua4 and lua4.Notification and lua4.Notification.Notify then
+				lua4.Notification:Notify({ Title = arg2, Description = arg3, Buttons = arg5, Id = arg6 }, { Time = arg4 or 5 })
+			end
+		end)
+	end
+
+	local name = nil
+	local v19 = nil
+	local fn12 = nil
+	local position = nil
+	local humanoidRootPart2 = nil
+
+	local function fn13()
+		if humanoidRootPart2 then
+			if typeof(humanoidRootPart2) == "Instance" then
+				if humanoidRootPart2.Parent and humanoidRootPart2:IsDescendantOf(workspace) then
+					local isModel = humanoidRootPart2:IsA("Model") and humanoidRootPart2 or humanoidRootPart2.Parent
+					isModel = isModel and isModel:FindFirstChildOfClass("Humanoid")
+
+					if not isModel or isModel.Health > 0 then
+						if humanoidRootPart2:IsA("BasePart") then
+							return humanoidRootPart2.Position
+						end
+
+						if humanoidRootPart2:IsA("Model") then
+							local humanoidRootPart3 = humanoidRootPart2:FindFirstChild("HumanoidRootPart") or humanoidRootPart2:FindFirstChild("Head") or humanoidRootPart2.PrimaryPart
+							if humanoidRootPart3 then
+								return humanoidRootPart3.Position
+							end
+						end
+					else
+						humanoidRootPart2 = nil
+					end
+				else
+					humanoidRootPart2 = nil
+				end
+			elseif typeof(humanoidRootPart2) == "Vector3" then
+				return humanoidRootPart2
+			end
+		end
+
+		if position then
+			if typeof(position) == "Instance" then
+				if position.Parent and position:IsDescendantOf(workspace) then
+					local isModel = position:IsA("Model") and position or position.Parent
+					isModel = isModel and isModel:FindFirstChildOfClass("Humanoid")
+
+					if not isModel or isModel.Health > 0 then
+						if position:IsA("BasePart") then
+							return position.Position
+						end
+
+						if position:IsA("Model") then
+							local humanoidRootPart3 = position:FindFirstChild("HumanoidRootPart") or position:FindFirstChild("Head") or position.PrimaryPart
+							if humanoidRootPart3 then
+								return humanoidRootPart3.Position
+							end
+						end
+					else
+						position = nil
+					end
+				else
+					position = nil
+				end
+			else
+				if typeof(position) == "Vector3" then
+					return position
+				end
+
+				if typeof(position) == "CFrame" then
+					return position.Position
+				end
+			end
+		end
+
+		local enableAimbot = tbl
+
+		if tbl then
+			enableAimbot = tbl.EnableAimbot or tbl.Aimbot
+		end
+
+		if enableAimbot and fn12 then
+			local v20 = fn12()
+
+			if v20 and v20.Character and v20.Character:IsDescendantOf(workspace) then
+				local character2 = v20.Character
+				local humanoid2 = character2:FindFirstChildOfClass("Humanoid")
+
+				if not humanoid2 or humanoid2.Health > 0 then
+					local humanoidRootPart3 = character2:FindFirstChild("HumanoidRootPart") or character2:FindFirstChild("Head") or character2.PrimaryPart
+					if humanoidRootPart3 then
+						return humanoidRootPart3.Position
+					end
+				end
+			end
+		end
+
+		return nil
+	end
+
+	local v20 = getrawmetatable(game)
+	local namecall = v20.__namecall
+	setreadonly(v20, false)
+
+	v20.__namecall = newcclosure(function(arg, ...)
+		local v21 = table.pack(...)
+		local v22 = getnamecallmethod()
+		local tbl8 = { ... }
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			local v23 = fn13()
+
+			if v23 and typeof(tbl8[1]) ~= "boolean" then
+				for i = 1, math.min(6, #tbl8) do
+					local v24 = tbl8[i]
+					if typeof(v24) == "Vector3" then
+						tbl8[i] = v23
+						return namecall(arg, unpack(tbl8))
+					end
+
+					if typeof(v24) == "CFrame" then
+						tbl8[i] = CFrame.new(v24.Position, v23)
+						return namecall(arg, unpack(tbl8))
+					end
+				end
+			end
+		end
+
+		return namecall(arg, table.unpack(v21, 1, v21.n))
+	end)
+
+	NPCPos = function(arg, arg2)
+		local n = level and level.Value or 1
+
+		local function fn14(arg3, arg4)
+			if typeof(arg3) == "Instance" then
+				if arg3:IsA("BasePart") then
+					return arg3.CFrame
+				end
+
+				if arg3:IsA("Model") then
+					return arg3:GetPivot()
+				end
+			else
+				if typeof(arg3) == "CFrame" then
+					return arg3
+				end
+
+				if typeof(arg3) == "Vector3" then
+					return CFrame.new(arg3)
+				end
+			end
+
+			if arg4 and type(arg4) == "table" then
+				if arg4.CFrame and typeof(arg4.CFrame) == "CFrame" then
+					return arg4.CFrame
+				end
+
+				if arg4.Position and typeof(arg4.Position) == "Vector3" then
+					return CFrame.new(arg4.Position)
+				end
+
+				if arg4.Position and typeof(arg4.Position) == "CFrame" then
+					return arg4.Position
+				end
+			end
+
+			return nil
+		end
+
+		if GuideModule and GuideModule.Data and GuideModule.Data.NPCList then
+			pcall(function()
+				if GuideModule.ChangeQuest and arg2 then
+					GuideModule.ChangeQuest(arg2)
+				end
+			end)
+
+			if arg2 then
+				for k, v21 in next, GuideModule.Data.NPCList, nil do
+					if v21 and v21.InternalQuestName and string.lower(v21.InternalQuestName) == string.lower(arg2) then
+						local v22 = fn14(k, v21)
+						if v22 then
+							return v22
+						end
+					end
+				end
+			end
+
+			for k, v21 in next, GuideModule.Data.NPCList, nil do
+				if v21 and v21.Levels and table.find(v21.Levels, n) then
+					local v22 = fn14(k, v21)
+					if v22 then
+						return v22
+					end
+				end
+			end
+
+			local str4
+
+			if arg2 then
+				str4 = arg2:gsub("Quest.*", ""):gsub("%d+", ""):lower()
+			else
+				str4 = arg2
+			end
+
+			str4 = str4 or ""
+			local match = arg and arg:match("^(%a+)")
+			local str5
+
+			if match then
+				str5 = arg:match("^(%a+)"):lower()
+			else
+				str5 = match
+			end
+
+			str5 = str5 or ""
+
+			for k, v21 in next, GuideModule.Data.NPCList, nil do
+				if v21 and type(v21) == "table" then
+					local str6 = tostring(v21.NPCName or ""):lower()
+					local str7 = tostring(v21.InternalQuestName or ""):lower()
+
+					if str4 ~= "" and (str6:find(str4, 1, true) or str7:find(str4, 1, true)) or str5 ~= "" and #str5 >= 4 and str6:find(str5, 1, true) then
+						local v22 = fn14(k, v21)
+						if v22 then
+							return v22
+						end
+					end
+				end
+			end
+
+			local lastClosestNPC = GuideModule.Data.LastClosestNPC
+
+			if lastClosestNPC then
+				for k, v21 in next, GuideModule.Data.NPCList, nil do
+					if v21 and v21.NPCName == lastClosestNPC then
+						local v22 = fn14(k, v21)
+						if v22 then
+							return v22
+						end
+					end
+				end
+			end
+		end
+
+		local function fn15(arg3)
+			if not arg3 then
+				return nil
+			end
+			local str4 = arg2
+
+			if arg2 then
+				str4 = arg2:gsub("Quest.*", ""):gsub("%d+", ""):lower()
+			end
+
+			str4 = str4 or ""
+			local match = arg and arg:match("^(%a+)")
+
+			if match then
+				match = arg:match("^(%a+)"):lower()
+			end
+
+			match = match or ""
+			local v21 = next
+			local children, v22 = arg3:GetChildren()
+
+			for _, v23 in v21, children, v22 do
+				local str5 = v23.Name:lower()
+				local flag4
+
+				if str4 ~= "" and str5:find(str4, 1, true) and (str5:find("quest") or str5:find("giver")) then
+					flag4 = true
+				elseif match ~= "" and #match >= 4 and str5:find(match, 1, true) then
+					flag4 = true
+				else
+					local pos = str5:find("quest") and arg2 and str5:find(arg2:lower():gsub("quest.*", ""))
+					flag4 = false
+
+					if pos then
+						flag4 = true
+					end
+				end
+
+				if flag4 then
+					local humanoidRootPart3 = v23:FindFirstChild("HumanoidRootPart") or v23.PrimaryPart
+					if humanoidRootPart3 then
+						return humanoidRootPart3.CFrame
+					end
+					return v23:GetPivot()
+				end
+			end
+
+			return nil
+		end
+
+		local v21 = fn15(v2:FindFirstChild("NPCs")) or fn15(v4:FindFirstChild("NPCs"))
+		if v21 then
+			return v21
+		end
+
+		if arg then
+			if not utilities.SpawnCache or not utilities.SpawnCache[arg] then
+				local fortBuilderReplicatedSpawnPositi = v4:FindFirstChild("FortBuilderReplicatedSpawnPositionsFolder")
+
+				if fortBuilderReplicatedSpawnPositi then
+					local v22 = next
+					local children, v23 = fortBuilderReplicatedSpawnPositi:GetChildren()
+
+					for _, v24 in v22, children, v23 do
+						if v24:IsA("BasePart") then
+							utilities.SpawnCache = utilities.SpawnCache or {}
+							utilities.SpawnCache[v24.Name] = utilities.SpawnCache[v24.Name] or {}
+							table.insert(utilities.SpawnCache[v24.Name], v24.CFrame)
+						end
+					end
+				end
+			end
+
+			local spawnCache = utilities.SpawnCache and utilities.SpawnCache[arg]
+			if spawnCache and #spawnCache > 0 then
+				return spawnCache[1]
+			end
+		end
+
+		if arg then
+			local enemies2 = utilities:GetEnemies(arg)
+			local humanoidRootPart3
+
+			if enemies2 then
+				humanoidRootPart3 = enemies2:FindFirstChild("HumanoidRootPart") or enemies2.PrimaryPart
+			else
+				humanoidRootPart3 = enemies2
+			end
+
+			if humanoidRootPart3 then
+				return humanoidRootPart3.CFrame
+			end
+		end
+
+		return nil
+	end
+
+	local n = 0
+	local v21 = nil
+
+	GetQuest = function()
+		local v22 = CheckQuest()
+		if not v22 or not v22[2] or v22[2] == "" then
+			return
+		end
+		local v23 = v22[1]
+		local v24 = v22[2]
+		local v25 = v22[3]
+		if HasActiveQuest() then
+			return
+		end
+
+		if tbl.BypassGetQuest then
+			tbl6:FireInvoke("StartQuest", v24, v25)
+
+			if tbl.QuestDebounce then
+				n = tick()
+				v21 = v24
+			end
+
+			task.wait(0.3)
+
+			if tbl.AutoSetSpawnPoint then
+				tbl6:FireInvoke("SetSpawnPoint")
+			end
+
+			return
+		end
+
+		local v26 = NPCPos(v23, v24)
+		if not v26 then
+			return
+		end
+
+		if utilities:GetDistance(v26) <= 25 then
+			tbl6:FireInvoke("StartQuest", v24, v25)
+
+			if tbl.QuestDebounce then
+				n = tick()
+				v21 = v24
+			end
+
+			task.wait(0.3)
+		elseif v18.Character and v18.Character:FindFirstChild("HumanoidRootPart") then
+			local position2 = v18.Character.HumanoidRootPart.Position
+			local position3 = typeof(v26) == "CFrame" and v26.Position or typeof(v26) == "Vector3" and v26 or v26.Position
+			tweenManager:topos(CFrame.new(position3 - ((position3 - position2).Magnitude > 5 and (position3 - position2).Unit * 5 or Vector3.zero)))
+		else
+			tweenManager:topos(v26)
+		end
+
+		if tbl.AutoSetSpawnPoint then
+			tbl6:FireInvoke("SetSpawnPoint")
+		end
+	end
+
+	local tbl8 = {
+		["Blox Fruit"] = { tooltip = "Blox Fruit", keys = "BloxFruitKeys", delay = "BloxFruitDelay" },
+		Melee = { tooltip = "Melee", keys = "MeleeKeys", delay = "MeleeDelay" },
+		Sword = { tooltip = "Sword", keys = "SwordKeys", delay = "SwordDelay" },
+		Gun = { tooltip = "Gun", keys = "GunKeys", delay = "GunDelay" },
+	}
+
+	local function fn14()
+		if not tbl.AutoSkills then
+			return
+		end
+
+		if not humanoid then
+			return
+		end
+		local selectSkills = tbl.SelectSkills
+		local tbl9 = type(selectSkills) == "table" and selectSkills or { selectSkills }
+
+		for _, v22 in next, tbl9, nil do
+			local v23 = tbl8[v22]
+
+			if v23 then
+				local character2 = v18.Character
+				character2 = character2 and character2:FindFirstChildWhichIsA("Tool")
+
+				if not character2 or character2.ToolTip ~= v23.tooltip then
+					local v24 = next
+					local children, v25 = v18.Backpack:GetChildren()
+
+					for _, v26 in v24, children, v25 do
+						if v26:IsA("Tool") and v26.ToolTip == v23.tooltip then
+							humanoid:EquipTool(v26)
+							task.wait(0.5)
+							break
+						end
+					end
+				end
+
+				local n2 = (tbl[v23.delay] or 300) / 1000
+				local v24 = tbl[v23.keys]
+				local tbl10 = type(v24) == "table" and v24 or { v24 }
+
+				for _, v25 in next, tbl10, nil do
+					local flag4 = typeof(v25) == "EnumItem" and v25 or Enum.KeyCode[v25]
+
+					if flag4 then
+						local n3 = (tbl["HoldTime_" .. (typeof(v25) == "EnumItem" and v25.Name or tostring(v25))] or 0) / 1000
+						v8:SendKeyEvent(true, flag4, false, game)
+
+						if n3 > 0 then
+							task.wait(n3)
+						else
+							task.wait()
+						end
+
+						v8:SendKeyEvent(false, flag4, false, game)
+						task.wait(n2)
+					end
+				end
+			end
+		end
+	end
+
+	checkv3boss = function()
+		return utilities:CheckMon("Diamond") or utilities:CheckMon("Orbitus") or utilities:CheckMon("Jeremy")
+	end
+
+	EquipSword = function(arg)
+		if not v18.Character:FindFirstChild(arg) then
+			tbl6:FireInvoke("LoadItem", arg)
+		end
+	end
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+		if not arg or arg == "" or typeof(arg) ~= "string" or not arg:find("http") then
+			return
+		end
+
+		task.spawn(function()
+			pcall(function()
+				fn2({
+					Url = arg,
+					Method = "POST",
+					Headers = { ["Content-Type"] = "application/json" },
+					Body = typeof(arg2) == "table" and v9:JSONEncode(arg2) or tostring(arg2),
+				})
+			end)
+		end)
+	end
+
+	WeeboLogs = function(arg, arg2)
+		local tbl9 = arg2 or {}
+		local str4 = ">>> **User:** " .. v18.Name .. "\n**Event:** " .. arg
+
+		if tbl9.Position then
+			str4 ..= "\n**Distance:** " .. math.floor(v18:DistanceFromCharacter(tbl9.Position)) .. "m"
+		end
+
+		if tbl9.Extra then
+			str4 ..= "\n" .. tbl9.Extra
+		end
+
+		local tbl10 = { { name = "Event Details", value = str4, inline = true } }
+
+		if tbl9.Field2 then
+			table.insert(tbl10, {
+				name = tbl9.Field2.name or "Info",
+				value = "```\n" .. tostring(tbl9.Field2.value) .. "\n```",
+				inline = false,
+			})
+		end
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+		local str5 = nil
+
+		if flag4 then
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+			else
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				end
+
+				str5 = nil
+
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+				end
+			end
+		end
+
+		return {
+			content = str5,
+			embeds = {
+				{
+					type = "rich",
+					color = 8202738,
+					fields = tbl10,
+					thumbnail = {
+-- [SANITIZED: network/executor/dynamic-load/remote operation removed]
+					},
+					timestamp = DateTime.now():ToIsoDate(),
+				},
+			},
+		}
+	end
+
+	local function fn15(arg)
+		local v22, v23, v24 = string.match(tostring(arg), "^([^%d]*%d)(%d*)(.-)$")
+		if not v22 then
+			return tostring(arg)
+		end
+		return v22 .. v23:reverse():gsub("(%d%d%d)", "%1,"):reverse() .. v24
+	end
+
+	local function fn16(arg)
+		local n2 = math.floor(arg % 60)
+		local n3 = math.floor(arg / 60 % 60)
+		return string.format("%02d:%02d:%02d", math.floor(arg / 3600), n3, n2)
+	end
+
+	local function fn17()
+		if not v18.Character then
+			return "None"
+		end
+		local tool = v18.Character:FindFirstChildOfClass("Tool")
+		if tool then
+			return tool.Name .. " (" .. (tool.ToolTip ~= "" and tool.ToolTip or "Weapon") .. ")"
+		end
+		return "None"
+	end
+
+	local function fn18()
+		local tbl9 = {}
+
+		for k in next, {
+			{ "AutoFarmLevel", "Level Farm" },
+			{ "AutoBone", "Bone Farm" },
+			{ "AutoCakePrince", "Cake Prince" },
+			{ "AutoDoughKing", "Dough King" },
+			{ "AutoTaskEliteHunter", "Elite Hunter" },
+			{ "AutoChest", "Chest Farm" },
+			{ "AutoMaterial", "Material Farm" },
+			{ "AutoRaid", "Raid / Dungeon" },
+			{ "AutoTrialDracoTP", "Draco Trial" },
+			{ "AutoSeaEvents", "Sea Events" },
+			{ "AutoFish", "Fish Farm" },
+			{ "AutoTTK", "True Triple Katana" },…"
+ content://media/external/downloads/7573#:~:text=%2D%2D%20sorry%20quantum%20%C3%B0%C5%B8,skidding%20%2D%20flazhy%22)%0Aend
